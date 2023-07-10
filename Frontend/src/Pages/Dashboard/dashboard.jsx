@@ -1,5 +1,7 @@
-import { Link } from 'react-router-dom'
-// import userimg from '../../assets/images/user.png';
+import { Link } from 'react-router-dom';
+import { BsBell } from 'react-icons/bs';
+import { AiOutlineSearch } from 'react-icons/ai';
+import userimg from '../../assets/images/user.png';
 import dashboard from '../../assets/images/dashboard.png';
 import reports from '../../assets/images/reports.png';
 import messages from '../../assets/images/messages.png';
@@ -13,6 +15,7 @@ function dashboard2() {
   return (
     <>
       <div id='Header'>
+        {/* Side Nav */}
             <div className="side-nav">
                 <div className="user">
                     <img src={logo} className='user-img' />
@@ -34,15 +37,29 @@ function dashboard2() {
                 </ul>
             </div>
 
+            {/* Top Nav */}
             <div className="top-nav">
-                <div className="menu">
-                    <h3>Dashboard</h3>
-                    <div className="search">
-                        <input type="text" placeholder="Search" />
-                        <i className="fas fa-search"></i>
-                        
+              <div className="search-box">
+                <input type="text" placeholder="Search" />
+                <i className="fa fa-search"><AiOutlineSearch /></i>
+              </div>
+              <div className="top-nav-right">
+                <span className='notification'><BsBell /></span>
+                <div className="profile">
+                  <img src={userimg} className='profile-img' />
+                </div>
             </div>
           </div>
+      </div>
+
+      {/* App Content */}
+      <div className="app-content">
+        <div className="app-content-area">
+          <div className="area-container">
+
+          </div>
+        </div>
+      </div>
     </>
   )
 }
