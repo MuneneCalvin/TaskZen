@@ -10,6 +10,7 @@ import members from '../../assets/images/members.png';
 import setting from '../../assets/images/setting.png';
 import logo from '../../assets/logo.png';
 import logout from '../../assets/images/logout.png';
+import './dashboard.css'
 
 function dashboard2() {
   return (
