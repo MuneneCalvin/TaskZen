@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Landing from './Pages/Landing';
-import Register from './Pages/signup';
-import Login from './Pages/Login';
-import NotFound from './Pages/NotFound';
+import Landing from './Components/Landing/landing';
+import Register from './Components/Signup/signup';
+import Login from './Components/LogIn/login';
+import Dashboard from './Pages/Dashboard/dashboard';
+import NotFound from './Pages/NotFound/Notfound';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/signup" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
