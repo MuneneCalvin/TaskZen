@@ -1,54 +1,123 @@
-import { Box, IconButton, useTheme } from "@mui/material";
-import { useContext } from "react";
-import { ColorModeContext, tokens } from "../../theme";
-import InputBase from "@mui/material/InputBase";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SearchIcon from "@mui/icons-material/Search";
+import './dashboard.css'
 
-const Topbar = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const colorMode = useContext(ColorModeContext);
-
+function dashboard() {
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR */}
-      <Box
-        display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="3px"
-      >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
-      </Box>
+    <>
+    <div className="sidebar">
+      <div className="sidebar-header">
+        <h3 className="brand">
+          <span className="ti-unlink"></span>
+          <span>Dashboard</span>
+        </h3>
+        <span className="t-menu-alt"></span>
+      </div>
+      <div className="sidebar-menu">
+        <ul>
+          <li>
+            <a href="#">
+              <span className="ti-home"></span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span className="ti-face-smile"></span>
+              <span>Team</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span className="ti-calendar"></span>
+              <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span className="ti-agenda"></span>
+              <span>Tasks</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span className="ti-folder"></span>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <li>
+            <a href="#">
+              <span className="ti-book"></span>
+              <span>Contacts</span>
+            </a>
+          </li>
+            <a href="#">
+              <span className="ti-settings"></span>
+              <span>Settings</span>
+            </a>
+          </li>
+          </ul>
+      </div>
+    </div>
 
-      {/* ICONS */}
-      <Box display="flex">
-        <IconButton onClick={colorMode.toggleColorMode}>
-          {theme.palette.mode === "dark" ? (
-            <DarkModeOutlinedIcon />
-          ) : (
-            <LightModeOutlinedIcon />
-          )}
-        </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <SettingsOutlinedIcon />
-        </IconButton>
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
-      </Box>
-    </Box>
-  );
-};
+    <div className="main-content">
+      <header>
+        <div className='search-wrapper'>
+          <span className="ti-search"></span>
+          <input type="search" placeholder="Search" />
+        </div>
+        <div className="social-icons">
+          <span className="ti-bell"></span>
+          <span className="ti-comment"></span>
+          <div></div>
+        </div>
+      </header>
 
-export default Topbar;
+      <main>
+        <h2 className="dash-title">Overview</h2>
+        <div className="dash-cards">
+          <div className="card-single">
+            <div className="card-body">
+              <span className="ti-briefcase"></span>
+              <div>
+                <h5>Account Balance</h5>
+                <h4>$30,659.45</h4>
+              </div>
+            </div>
+            <div className="card-footer">
+              <a href="#">View all</a>
+              </div>
+          </div>
+
+          <div className="card-single">
+            <div className="card-body">
+              <span className="ti-reload"></span>
+              <div>
+                <h5>Pending</h5>
+                <h4>$19,500.45</h4>
+              </div>
+            </div>
+            <div className="card-footer">
+              <a href="#">View all</a>
+              </div>
+          </div>
+
+          <div className="card-single">
+            <div className="card-body">
+              <span className="ti-checkbox"></span>
+              <div>
+                <h5>Processed</h5>
+                <h4>$20,659.45</h4>
+              </div>
+            </div>
+            <div className="card-footer">
+              <a href="#">View all</a>
+              </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    </>
+  )
+}
+
+export default dashboard
