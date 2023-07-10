@@ -25,10 +25,10 @@ function App() {
 
             <div className="links">
                 <ul>
-                <li><a href="#">Features</a></li>
+                <li><a href="">Features</a></li>
                 <li><a href="#">Pricing</a></li>
                 <li><a href="#">Testimonials</a></li>
-                <li><a href="#" className="btn">Sign up</a></li>
+                <li><a href="/signup" className="btn">Sign up</a></li>
                 </ul>
             </div>
 
@@ -53,7 +53,7 @@ function App() {
                 vitae!
                 </p>
                 <div className="cta">
-                <a href="#" className="btn">Get started</a>
+                <a href="/login" className="btn">Get started</a>
                 </div>
             </div>
 
