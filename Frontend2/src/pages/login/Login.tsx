@@ -30,9 +30,9 @@ const Login = () => {
                       </div>
                     
                     <div className="flex-row">
-                      <div>
-                      <input type="radio" />
-                      <label>Remember me </label>
+                      <div className='checker'>
+                        <input type="radio" />
+                        <label>Remember me </label>
                       </div>
                       <span className="span">Forgot password?</span>
                     </div>
