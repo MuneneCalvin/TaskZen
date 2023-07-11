@@ -4,7 +4,6 @@ import "./pieChartBox.scss";
 const data = [
   { name: "Completed", value: 400, color: "#0088FE" },
   { name: "Behind", value: 300, color: "#00C49F" },
-  // { name: "Laptop", value: 300, color: "#FFBB28" },
   { name: "In-Progress", value: 200, color: "#FF8042" },
 ];
 
@@ -39,7 +38,6 @@ const PieChartBox = () => {
               <div className="dot" style={{ backgroundColor: item.color }} />
               <span className="item-name">{item.name}</span>
             </div>
-            {/* <span>{item.value}</span> */}
           </div>
         ))}
       </div>
