@@ -1,7 +1,7 @@
 import Home from "./pages/home/Home";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Users from "./pages/users/Users";
-import Products from "./pages/products/Products";
+import Projects from "./pages/projects/Projects";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
@@ -49,8 +49,8 @@ function App() {
           element: <Users />,
         },
         {
-          path: "/products",
-          element: <Products />,
+          path: "/projects",
+          element: <Projects />,
         },
         {
           path: "/users/:id",

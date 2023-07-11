@@ -12,7 +12,7 @@ export const menu = [
       {
         id: 2,
         title: "Projects",
-        url: "/products",
+        url: "/projects",
         icon: "element.svg",
       },
     ],
