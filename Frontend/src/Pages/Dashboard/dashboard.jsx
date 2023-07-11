@@ -55,11 +55,7 @@ function dashboard2() {
 
       {/* App Content */}
       <div className="app-content">
-        <div className="app-content-area">
-          <div className="area-container">
-
-          </div>
-        </div>
+        
       </div>
     </>
   )
