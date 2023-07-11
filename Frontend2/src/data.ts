@@ -80,6 +80,7 @@ export const topDealUsers = [
     username: "Elva McDonald",
     email: "elva@gmail.com",
     amount: "3.668",
+    role: "Team lead",
   },
   {
     id: 2,
@@ -87,6 +88,7 @@ export const topDealUsers = [
     username: "Linnie Nelson",
     email: "linnie@gmail.com",
     amount: "3.256",
+    role: "Front-end",
   },
   {
     id: 3,
@@ -94,6 +96,7 @@ export const topDealUsers = [
     username: "Brent Reeves",
     email: "brent@gmail.com",
     amount: "2.998",
+    role: "Back-end",
   },
   {
     id: 4,
@@ -101,6 +104,7 @@ export const topDealUsers = [
     username: "Adeline Watson",
     email: "adeline@gmail.com",
     amount: "2.512",
+    role: "Director",
   },
   {
     id: 5,
@@ -108,6 +112,7 @@ export const topDealUsers = [
     username: "Juan Harrington",
     email: "juan@gmail.com",
     amount: "2.134",
+    role: "Accountant",
   },
   {
     id: 6,
@@ -115,6 +120,7 @@ export const topDealUsers = [
     username: "Augusta McGee",
     email: "augusta@gmail.com",
     amount: "1.932",
+    role: "Front-end",
   },
   {
     id: 7,
@@ -122,6 +128,7 @@ export const topDealUsers = [
     username: "Angel Thomas",
     email: "angel@gmail.com",
     amount: "1.560",
+    role: "Director",
   },
 ];
 
