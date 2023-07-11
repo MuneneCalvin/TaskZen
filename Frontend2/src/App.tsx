@@ -1,6 +1,6 @@
 import Home from "./pages/home/Home";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Users from "./pages/users/Users";
+import Team from "./pages/team/Team";
 import Projects from "./pages/projects/Projects";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -45,8 +45,8 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/users",
-          element: <Users />,
+          path: "/team",
+          element: <Team />,
         },
         {
           path: "/projects",

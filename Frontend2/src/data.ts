@@ -24,7 +24,7 @@ export const menu = [
       {
         id: 1,
         title: "Team Members",
-        url: "/users",
+        url: "/team",
         icon: "user.svg",
       },
       {
