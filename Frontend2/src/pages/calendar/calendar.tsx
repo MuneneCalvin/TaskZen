@@ -12,4 +12,4 @@ function calendar() {
     )
 }
 
-export default calendar
+export default calendar;
