@@ -37,9 +37,10 @@ const Login = () => {
                       <span className="span">Forgot password?</span>
                     </div>
                     <button className="button-submit">Log In</button>
-                    <p className="p">Don't have an account? <span className="span">Sign Up</span>
 
-                    </p><p className="p line">Or With</p>
+                    <p className="p">Don't have an account? <span className="span">Sign Up</span></p>
+                    
+                    <p className="p line">Or With</p>
 
                     <div className="flex-row">
                       <button className="btn google">
