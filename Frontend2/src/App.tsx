@@ -5,6 +5,7 @@ import Projects from "./pages/projects/Projects";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
+import Landing from "./pages/landing/landing";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/signup";
 import "./styles/global.scss";
@@ -69,6 +70,10 @@ function App() {
     {
       path: "/signup",
       element: <Signup />,
+    },
+    {
+      path: "/landing",
+      element: <Landing />,
     },
   ]);
 
