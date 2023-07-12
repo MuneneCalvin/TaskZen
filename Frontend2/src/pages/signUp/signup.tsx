@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './signup.scss';
 
 const Signup = () => {
@@ -52,7 +53,7 @@ const Signup = () => {
                     </div>
 
                     <button title="Sign In" type="submit" className="sign-in_btn">
-                        <span>Sign Up</span>
+                        <Link to = "/login"><span>Sign Up</span></Link>
                     </button>
 
                     <div className="separator">
