@@ -56,7 +56,7 @@ const data = [
 const BigChartBox = () => {
   return (
     <div className="bigChartBox">
-      <h1>Revenue Analytics</h1>
+      <h1>Active projects</h1>
       <div className="chart">
         <ResponsiveContainer width="99%" height="100%">
           <AreaChart
@@ -68,7 +68,7 @@ const BigChartBox = () => {
               bottom: 0,
             }}
           >
-            <XAxis dataKey="name" />
+            {/* <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
             <Area
@@ -91,7 +91,7 @@ const BigChartBox = () => {
               stackId="1"
               stroke="#ffc658"
               fill="#ffc658"
-            />
+            /> */}
           </AreaChart>
         </ResponsiveContainer>
       </div>

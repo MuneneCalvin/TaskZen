@@ -17,6 +17,7 @@
     "@fullcalendar/timegrid": "^6.1.8",
     "@mui/material": "^5.13.7",
     "@mui/x-data-grid": "^6.9.2",
+    "@syncfusion/ej2-react-schedule": "^22.1.38",
     "@tanstack/react-query": "^4.29.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
