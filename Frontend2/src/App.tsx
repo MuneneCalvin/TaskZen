@@ -6,6 +6,7 @@ import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import Landing from "./pages/landing/landing";
+import Calendar from "./pages/calendar/calendar";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/signup";
 import "./styles/global.scss";
@@ -38,11 +39,11 @@ function App() {
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      // path: "/",
       element: <Layout />,
       children: [
         {
-          path: "/",
+          path: "/home",
           element: <Home />,
         },
         {
@@ -52,6 +53,10 @@ function App() {
         {
           path: "/projects",
           element: <Projects />,
+        },
+        {
+          path: "/calendar",
+          element: <Calendar />,
         },
         {
           path: "/users/:id",
@@ -72,7 +77,7 @@ function App() {
       element: <Signup />,
     },
     {
-      path: "/landing",
+      path: "/",
       element: <Landing />,
     },
   ]);
