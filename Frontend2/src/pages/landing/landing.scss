@@ -57,7 +57,7 @@ a {
   justify-content: space-between;
 }
 
-.container {
+.container2{
   position: relative;
   max-width: 81rem;
   width: 100%;
@@ -71,7 +71,7 @@ header {
   z-index: 70;
 }
 
-header .container {
+header .container2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -88,7 +88,9 @@ header .container {
 }
 
 .logo img {
+  height: 40px;
   width: 40px;
+  border-radius: 50%;
   margin-right: 0.6rem;
   margin-top: -0.6rem;
 }
@@ -118,19 +120,19 @@ header .container {
   transform: scale(1.05);
 }
 
-.btn {
+.btn2 {
   display: inline-block;
   padding: 0.9rem 1.9rem;
   color: #fff !important;
   background-color: var(--mainColor);
   border-radius: 16px;
   text-transform: capitalize;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
-.btn:hover {
+.btn2:hover {
   background-color: var(--hoverColor);
-  transform: scale(1) !important;
+  transform: scale(1.1) !important;
 }
 
 .hamburger-menu {
@@ -185,7 +187,7 @@ header .container {
   transform: translateY(0) rotate(45deg);
 }
 
-.showcase-area .container {
+.showcase-area .container2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -207,7 +209,7 @@ header .container {
   line-height: 2.3;
 }
 
-.showcase-area .btn {
+.showcase-area .btn2 {
   box-shadow: 0 0 40px 2px rgba(0, 0, 0, 0.05);
 }
 
@@ -317,7 +319,7 @@ header .container {
     padding: 2rem 0;
   }
 
-  .links .btn {
+  .links .btn2 {
     background: none;
   }
 
@@ -350,7 +352,7 @@ header .container {
     margin: 0 auto;
   }
 
-  .showcase-area .container {
+  .showcase-area .container2 {
     grid-template-columns: 1fr;
     justify-content: center;
     grid-gap: 2rem;
@@ -381,7 +383,7 @@ header .container {
 }
 
 @media screen and (max-width: 470px) {
-  .container {
+  .container2 {
     padding: 0 1.5rem;
   }
 
@@ -393,7 +395,7 @@ header .container {
     margin: 1.1rem 0 1.5rem;
   }
 
-  .showcase-area .btn {
+  .showcase-area .btn2 {
     font-size: 0.8rem;
   }
 }
