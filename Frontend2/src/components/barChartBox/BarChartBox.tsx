@@ -11,7 +11,7 @@ type Props = {
 const BarChartBox = (props: Props) => {
   return (
     <div className="barChartBox">
-      <h1>{props.title}</h1>
+      <h1>My Task</h1>
       <div className="chart">
         <ResponsiveContainer width="99%" height={150}>
           <BarChart data={props.chartData}>
@@ -20,7 +20,7 @@ const BarChartBox = (props: Props) => {
               labelStyle={{ display: "none" }}
               cursor={{fill:"none"}}
             />
-            <Bar dataKey={props.dataKey} fill={props.color} />
+            {/* <Bar dataKey={props.dataKey} fill={props.color} /> */}
           </BarChart>
         </ResponsiveContainer>
       </div>

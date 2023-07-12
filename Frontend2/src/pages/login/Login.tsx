@@ -37,9 +37,11 @@ const Login = () => {
                       </div>
                       <span className="span">Forgot password?</span>
                     </div>
+                    
                     <button className="button-submit"><Link to = "/home">Log In</Link></button>
                     
                     <p className="p">Don't have an account? <span className="span"><Link to = "/signup">Sign Up</Link></span></p>
+                    
                     <p className="p line">Or With</p>
 
                     <div className="flex-row">

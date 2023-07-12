@@ -16,4 +16,42 @@
     width: 100%;
     height: 300px;
   }
+  .card-table {
+    margin: -1.25rem;
+  }
+  .table {
+    width: 100%;
+    border: #334155;
+    // vertical-align: top;
+    // text-align: center;
+  }
+  .table th {
+    border-bottom: 1px solid #334155;
+    padding: 10px;
+  }
+  .thead-light {
+    background-color: #334155;
+    color: #fff;
+  }
+  
+  .table td {
+    padding: 1rem;
+    vertical-align: top;
+    border-top: 1px solid #334155;
+  }
+  .progress {
+    width: 100%;
+    height: 10px;
+    background-color: #334155;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #624bff;
+    color: #fff;
+    border-radius: 8px;
+  }
+  
 }
