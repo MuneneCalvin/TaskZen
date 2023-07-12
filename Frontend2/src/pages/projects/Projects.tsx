@@ -18,24 +18,24 @@ const columns: GridColDef[] = [
   {
     field: "title",
     type: "string",
-    headerName: "Title",
+    headerName: "Name",
     width: 250,
   },
   {
     field: "color",
     type: "string",
-    headerName: "Color",
+    headerName: "Priority",
     width: 150,
   },
   {
     field: "price",
     type: "string",
-    headerName: "Price",
+    headerName: "Deadline",
     width: 200,
   },
   {
     field: "producer",
-    headerName: "Producer",
+    headerName: "Members",
     type: "string",
     width: 200,
   },
@@ -47,7 +47,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "inStock",
-    headerName: "In Stock",
+    headerName: "Assigned",
     width: 150,
     type: "boolean",
   },
@@ -69,8 +69,8 @@ const Products = () => {
   return (
     <div className="products">
       <div className="info">
-        <h1>Products</h1>
-        <button onClick={() => setOpen(true)}>Add New Products</button>
+        <h1>Projects</h1>
+        <button onClick={() => setOpen(true)}>Add New Project</button>
       </div>
       <DataTable slug="products" columns={columns} rows={products} />
       {/* TEST THE API */}
