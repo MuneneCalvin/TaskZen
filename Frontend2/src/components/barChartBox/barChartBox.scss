@@ -8,5 +8,26 @@
   }
 
   .chart{
+    // width: 100%;
+    // height: 300px;
+  }
+  .task-table {
+    margin: -1rem;
+  }
+  .table-task {
+    width: 100%;
+    border: #334155;
+  }
+  .table-task th {
+    border-bottom: 1px solid #334155;
+  }
+  .thead-light-task {
+    background-color: #334155;
+    color: #fff;
+  }
+  .table-task td {
+    padding: 12px;
+    vertical-align: top;
+    border-top: 1px solid #334155;
   }
 }
