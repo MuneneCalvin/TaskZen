@@ -22,19 +22,19 @@ const columns: GridColDef[] = [
     width: 250,
   },
   {
-    field: "color",
+    field: "priority",
     type: "string",
     headerName: "Priority",
     width: 150,
   },
   {
-    field: "price",
+    field: "deadline",
     type: "string",
     headerName: "Deadline",
     width: 200,
   },
   {
-    field: "producer",
+    field: "members",
     headerName: "Members",
     type: "string",
     width: 200,
@@ -46,7 +46,7 @@ const columns: GridColDef[] = [
     type: "string",
   },
   {
-    field: "inStock",
+    field: "status",
     headerName: "Assigned",
     width: 150,
     type: "boolean",
