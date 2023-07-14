@@ -44,7 +44,8 @@ const Single = (props: Props) => {
         {props.chart && (
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart
+              <div>Helooo</div>
+              {/* <LineChart
                 width={500}
                 height={300}
                 data={props.chart.data}
@@ -66,7 +67,7 @@ const Single = (props: Props) => {
                     stroke={dataKey.color}
                   />
                 ))}
-              </LineChart>
+              </LineChart> */}
             </ResponsiveContainer>
           </div>
         )}
