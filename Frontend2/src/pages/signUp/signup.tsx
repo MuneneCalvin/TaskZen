@@ -1,22 +1,22 @@
 // import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import Axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
+// import * as yup from 'yup';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import Axios from 'axios';
 import './signup.scss';
 
 const Signup = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const schema = yup.object().shape ({
-        name: yup.string().required('Name is required'),
-        email: yup.string().email('Email is invalid').required('Email is required'),
-        password: yup.string().required('Password is required').min(8, 'Password is too short - should be 8 chars minimum.'),
-    });
+    // const schema = yup.object().shape ({
+    //     name: yup.string().required('Name is required'),
+    //     email: yup.string().email('Email is invalid').required('Email is required'),
+    //     password: yup.string().required('Password is required').min(8, 'Password is too short - should be 8 chars minimum.'),
+    // });
 
-    const { register, handleSubmit, formState: { errors } } = useForm ({
-        resolver: yupResolver(schema)
-    });
+    // const { register, handleSubmit, formState: { errors } } = useForm ({
+    //     resolver: yupResolver(schema)
+    // });
 
 
     return (
@@ -49,7 +49,7 @@ const Signup = () => {
                         </svg>
                         <input placeholder="Full Names" title="Input title" name="input-name" type="text" className="input_field" id="email_field" required />
                     </div>
-                    <p className="error_message">{errors.name?.message}</p>
+                    {/* <p className="error_message">{errors.name?.message}</p> */}
 
                     <div className="input_container">
                         <label className="input_label" htmlFor="email_field">Email</label>
@@ -59,7 +59,7 @@ const Signup = () => {
                         </svg>
                         <input placeholder="name@mail.com" title="Input title" name="input-name" type="email" className="input_field" id="email_field" required />
                     </div>
-                    <p className='error_message'>{errors.email?.message}</p>
+                    {/* <p className='error_message'>{errors.email?.message}</p> */}
 
                     <div className="input_container">
                         <label className="input_label" htmlFor="password_field">Password</label>
@@ -70,7 +70,7 @@ const Signup = () => {
                         </svg>
                         <input placeholder="Password" title="Input title" name="input-name" type="password" className="input_field" id="password_field" required />
                     </div>
-                    <p className='error'>{errors.password?.message}</p>
+                    {/* <p className='error'>{errors.password?.message}</p> */}
 
                     <button title="Sign In" type="submit" className="sign-in_btn">
                         <span>Sign Up</span>
