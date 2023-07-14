@@ -59,7 +59,7 @@ function App() {
           element: <Calendar />,
         },
         {
-          path: "/users/:id",
+          path: "/profile/:id",
           element: <User />,
         },
         {

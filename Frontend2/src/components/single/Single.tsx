@@ -72,7 +72,7 @@ const Single = (props: Props) => {
           </div>
         )}
       </div>
-      <div className="activities">
+      {/* <div className="activities">
         <h2>Latest Activities</h2>
         {props.activities && (
           <ul>
@@ -86,7 +86,7 @@ const Single = (props: Props) => {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
