@@ -7,6 +7,7 @@ import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 import Landing from "./pages/landing/landing";
 import Calendar from "./pages/calendar/calendar";
+import Task from "./pages/tasks/tasks";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/signup";
 import "./styles/global.scss";
@@ -57,6 +58,10 @@ function App() {
         {
           path: "/calendar",
           element: <Calendar />,
+        },
+        {
+          path: "/tasks",
+          element: <Task />,
         },
         {
           path: "/profile/:id",
