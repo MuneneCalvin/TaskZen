@@ -12,7 +12,7 @@ import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/signup";
 import "./styles/global.scss";
 import User from "./pages/user/User";
-import Product from "./pages/product/Product";
+import Project from "./pages/project/Project";
 import { QueryClient, QueryClientProvider,} from "@tanstack/react-query";
 
 
@@ -69,7 +69,7 @@ function App() {
         },
         {
           path: "/products/:id",
-          element: <Product />,
+          element: <Project />,
         },
       ],
     },

@@ -571,14 +571,14 @@ export const singleUser = {
 };
 export const singleProduct = {
   id: 1,
-  title: "Playstation 5 Digital Edition",
+  title: "Nebula X",
   img: "https://store.sony.com.au/on/demandware.static/-/Sites-sony-master-catalog/default/dw1b537bbb/images/PLAYSTATION5W/PLAYSTATION5W.png",
   info: {
     productId: "Ps5SDF1156d",
-    color: "white",
-    price: "$250.99",
-    producer: "Sony",
-    export: "Japan",
+    priority: "High",
+    members: "John Doe",
+    Duedate: "02/31/2023",
+    status: "In Progress",
   },
   chart: {
     dataKeys: [
@@ -625,15 +625,15 @@ export const singleProduct = {
   },
   activities: [
     {
-      text: "John Doe purchased Playstation 5 Digital Edition",
+      text: " John Doe joined the project",
       time: "3 day ago",
     },
     {
-      text: "Jane Doe added Playstation 5 Digital Edition into their wishlist",
+      text: "John Doe added 3 items into their wishlist",
       time: "1 week ago",
     },
     {
-      text: "Mike Doe purchased Playstation 5 Digital Edition",
+      text: "Mike Doe was relieved from the project",
       time: "2 weeks ago",
     },
     {
@@ -641,11 +641,11 @@ export const singleProduct = {
       time: "1 month ago",
     },
     {
-      text: "Michael Doe added Playstation 5 Digital Edition into their wishlist",
+      text: "Michael Doe added Digital Edition into their wishlist",
       time: "1 month ago",
     },
     {
-      text: "Helen Doe reviewed the product",
+      text: "Helen Doe reviewed the project",
       time: "2 months ago",
     },
   ],

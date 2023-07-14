@@ -44,7 +44,6 @@ const Single = (props: Props) => {
         {props.chart && (
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
-              {/* <div>Helooo</div> */}
               <LineChart
                 width={500}
                 height={300}
