@@ -49,11 +49,11 @@ export const registerUser = async (req, res) => {
 
 // Login a user
 export const loginUser = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     let pool = await sql.connect(config.sql);
     let result = await pool.request()
-        .input('username', sql.VarChar, username)
-        .query("select * from Users where username = @username");
+        .input('email', sql.VarChar, email)
+        .query("select * from Users where email = @email");
     const user = result.recordset[0];
     if (!user) {
         res.status(404).json({ Message: "User not found..!!!" });
