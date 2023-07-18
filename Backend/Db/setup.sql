@@ -20,6 +20,17 @@ create table Team (
     verified bit NOT NULL,
 );
 
+create table Projects (
+    id int PRIMARY KEY identity(1,1),
+    img varchar(500) NOT NULL,
+    title varchar(50) NOT NULL,
+    priority varchar(50) NOT NULL,
+    deadline datetime NOT NULL,
+    members varchar(500) NOT NULL,
+    createdAt datetime NOT NULL,
+    verified bit NOT NULL,
+);
+
 INSERT INTO Team (img, lastName, firstName, email, phone, createdAt, verified)
 VALUES 
     ('https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load', 'Hubbard', 'Eula', 'kewez@@gmail.com', '123 456 789', '2023-02-01', 1),
@@ -37,3 +48,17 @@ VALUES
     ('https://images.pexels.com/photos/761977/pexels-photo-761977.jpeg?auto=compress&cs=tinysrgb&w=1600', 'Cruz', 'Charlotte', 'ceuc@gmail.com', '123 456 789', '2023-02-01', 0),
     ('https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&w=1600', 'Harper', 'Sara', 'bafuv@hotmail.com', '123 456 789', '2023-02-01', 0),
     ('https://images.pexels.com/photos/8405873/pexels-photo-8405873.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load', 'Griffin', 'Eric', 'ubi@gmail.com', '123 456 789', '2023-02-01', 0);
+
+INSERT INTO Projects (img, title, priority, deadline, members, createdAt, verified)
+VALUES
+    ('https://store.sony.com.au/on/demandware.static/-/Sites-sony-master-catalog/default/dw1b537bbb/images/PLAYSTATION5W/PLAYSTATION5W.png', 'Nebula X', 'high', '2023-06-01', '$250.99', '2023-06-06', 1),
+    ('https://www.pngmart.com/files/6/Dell-Laptop-PNG-Image.png', 'Quantum Shift', 'medium', '2023-03-31', '$499.99', '2023-05-01', 1),
+    ('http://images.samsung.com/is/image/samsung/uk-led-tv-hg40ed670ck-hg40ed670ckxxu-001-front', 'Project Phoenix', 'low', '2023-07-08', '$999.49', '2023-03-01', 1),
+    ('https://raylo.imgix.net/iphone-14-blue.png', 'Elysium Labs', 'high', '2023-11-02', '$799.49', '2022-01-02', 1),
+    ('https://www.signify.com/b-dam/signify/en-aa/about/news/2020/20200903-movie-night-essentials-popcorn-ice-cream-and-the-new-philips-hue-play-gradient-lightstrip/packaging-lighstrip.png', 'Stellar Quest', 'low', '2023-02-01', '$39.99', '2023-02-01', 0),
+    ('https://www.smartworld.it/wp-content/uploads/2019/09/High_Resolution_PNG-MX-Master-3-LEFT-GRAPHITE.png', 'Project Genesis', 'low', '2023-01-02', '$59.49', '2023-02-01', 1),
+    ('https://www.pngarts.com/files/7/Podcast-Mic-PNG-Picture.png', 'Infinite Horizons', 'medium', '2023-06-05', '$119.49', '2023-06-05', 0),
+    ('https://5.imimg.com/data5/SW/VM/MY-5774620/toshiba-split-ac-2-ton-3-star-rated-ras-24s3ks-500x500.png', 'Zenith Ventures', 'high', '2023-02-01', '$899.99', '2023-03-01', 1),
+    ('https://img.productz.com/review_image/102489/preview_sony-kdl-50w800b-50-inch-hdtv-review-superb-picture-102489.png', 'Fusion Nexus', 'low', '2023-02-01', '$970.49', '2023-01-02', 0),
+    ('https://venturebeat.com/wp-content/uploads/2015/07/As_AO1-131_gray_nonglare_win10_03.png?fit=1338%2C1055&strip=all', 'Project Aurora', 'low', '2023-02-01', '$599.99', '2023-02-01', 1);
+
