@@ -1,9 +1,8 @@
 import Single from "../../components/single/Single"
 import { singleProduct } from "../../data"
-import "./project.scss"
+import "./product.scss"
 
 const Product = () => {
-  // const [open, setOpen] = useState(false);
 
   //Fetch data and send to Single Component
   return (

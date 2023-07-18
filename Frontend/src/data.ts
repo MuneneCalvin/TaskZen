@@ -569,6 +569,7 @@ export const singleUser = {
     },
   ],
 };
+
 export const singleProduct = {
   id: 1,
   title: "Nebula X",
@@ -577,7 +578,7 @@ export const singleProduct = {
     productId: "Ps5SDF1156d",
     priority: "High",
     members: "John Doe",
-    Duedate: "02/31/2023",
+    Due_date: "02/31/2023",
     status: "In Progress",
   },
   chart: {
