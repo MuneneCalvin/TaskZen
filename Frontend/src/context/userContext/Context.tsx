@@ -10,19 +10,24 @@ interface ContextProps {
   dispatch: React.Dispatch<any>;
 }
 
+// Initial state
+const storedUser = localStorage.getItem("user");
 const initialState: State = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: storedUser ? JSON.parse(storedUser) : null,
 };
 
+// Create context
 export const Context = createContext<ContextProps>({
   user: initialState.user,
   dispatch: () => {},
 });
 
+// 
 interface ContextProviderProps {
   children: ReactNode;
 }
 
+// Context provider
 export const ContextProvider = ({ children }: ContextProviderProps) => {
   const [state, dispatch] = useReducer(Reducer, initialState);
 
