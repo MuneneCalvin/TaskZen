@@ -3,6 +3,22 @@ import config from '../Db/config.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+// Login required middleware
+export const loginRequired = (req, res, next) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        jwt.verify(token, config.jwt_secret, (err, decoded) => {
+            if (decoded) {
+                next();
+            } else {
+                res.status(401).json({ Message: "Please login first..!!!" });
+            }
+        });
+    } catch (error) {
+        res.status(401).json({ Message: "Please login first..!!!" });
+    }
+}
+
 // Registering a user
 export const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
