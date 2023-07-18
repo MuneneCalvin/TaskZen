@@ -1,9 +1,9 @@
 import { GridColDef } from "@mui/x-data-grid";
 import DataTable from "../../components/dataTable/DataTable";
 import "./Team.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Add from "../../components/add/Add";
-import { userRows } from "../../data";
+// import { userRows } from "../../data";
 // import { useQuery } from "@tanstack/react-query";
 
 const columns: GridColDef[] = [
@@ -56,25 +56,38 @@ const columns: GridColDef[] = [
 
 const Users = () => {
   const [open, setOpen] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("http://localhost:8083/team");
+      const json = await res.json();
+      setData(json);
+    }
+    fetchData();
+  }, []);
 
   // TEST THE API
-
   // const { isLoading, data } = useQuery({
-  //   queryKey: ["allusers"],
+  //   queryKey: ["Teams"],
   //   queryFn: () =>
-  //     fetch("http://localhost:8800/api/users").then(
+  //     fetch("http://localhost:8083/team").then(
   //       (res) => res.json()
   //     ),
+  //     onError: (error) => {
+  //       console.error("Error fetching data:", error);
+  //     },
   // });
 
   return (
     <div className="users">
       <div className="info">
         <h1>Team</h1>
-        <button onClick={() => setOpen(true)}>Add New User</button>
+        <button onClick={() => setOpen(true)}>Add New Member</button>
       </div>
-      <DataTable slug="users" columns={columns} rows={userRows} />
+      {/* <DataTable slug="users" columns={columns} rows={userRows} /> */}
       {/* TEST THE API */}
+      <DataTable slug="users" columns={columns} rows={data} />
 
       {/* {isLoading ? (
         "Loading..."
