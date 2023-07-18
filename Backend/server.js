@@ -2,7 +2,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from "cors";
+import jwt from 'jsonwebtoken';
 import Routes from './Routes/routes.js';
+import config from './Db/config.js';
 
 const app = express();
 dotenv.config();
