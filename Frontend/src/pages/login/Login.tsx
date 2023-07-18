@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext } from 'react';
-import { Context } from '../../context/userContext/Context';
+import { Context } from '../../context/userContext/Context.tsx';
 import './Login.scss';
 import Axios from 'axios';
 
