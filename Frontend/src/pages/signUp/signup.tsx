@@ -20,14 +20,14 @@ const Signup = () => {
         resolver: yupResolver(schema)
     });
 
-    const onSubmit = () => {
-        Axios.post('http://localhost:8082/register')
+    const onSubmit = (data) => {
+        Axios.post('http://localhost:8082/register', data)
         .then((response) => {
-            console.log(response);
+            response.data.Message && alert(response.data.Message);
             navigate('/login');
         })
         .catch((error) => {
-            console.log(error);
+            error.response.data.Message && alert(error.response.data.Message);
         });
     }
 
