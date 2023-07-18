@@ -44,7 +44,7 @@ export const loginUser = async (req, res) => {
         res.status(404).json({ Message: "User not found..!!!" });
     } else {
         if (!bcrypt.compareSync(password, user.password)) {
-            res.status(404).json({ Message: "Incorrect password..!!!" });
+            res.status(404).json({ Message: "Incorrect credentials..!!!" });
         } else {
             const token = `JWT ${jwt.sign({ username: user.username, email: user.email }, config.jwt_secret)}`;
             req.user = user;
