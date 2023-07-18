@@ -16,7 +16,7 @@ const columns: GridColDef[] = [
         },
     },
     {
-        field: "title",
+        field: "name",
         type: "string",
         headerName: "Name",
         width: 250,
@@ -41,9 +41,9 @@ const columns: GridColDef[] = [
     },
     {
         field: "status",
-        headerName: "Assigned",
+        headerName: "Status",
         width: 150,
-        type: "boolean",
+        type: "string",
     },
 ];
 
@@ -52,7 +52,7 @@ function tasks() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8083/tasks")
+        fetch("http://localhost:8083/task")
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);
@@ -63,7 +63,8 @@ function tasks() {
         <h1>My tasks</h1>
         <button onClick={() => setOpen(true)}>Add New Task</button>
         </div>
-        <DataTable slug="products" columns={columns} rows={data} />
+
+        <DataTable slug="product" rows={data} columns={columns} />
 
         {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
     </div>
