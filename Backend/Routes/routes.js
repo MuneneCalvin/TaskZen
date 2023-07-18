@@ -1,18 +1,18 @@
-import { loginUser, registerUser, getUsers, updateUser, loginRequired } from "../Controllers/userController.js";
+import { loginUser, registerUser, getUsers, updateUser } from "../Controllers/userController.js";
 import { getTeams, getTeam, createTeam, updateTeam, deleteTeam } from "../Controllers/teamController.js";
 
 const taskRoutes = (app) => {
 
     // Teams Members
     app.route('/team')
-        .get(loginRequired, getTeams)
-        .post(loginRequired, getTeam);
+        .get(getTeams)
+        .post(getTeam);
 
     app.route('/team/:id')
-        .get(loginRequired, getTeam)
-        .post(loginRequired, createTeam)
-        .put(loginRequired, updateTeam)
-        .delete(loginRequired, deleteTeam);
+        .get(getTeam)
+        .post(createTeam)
+        .put(updateTeam)
+        .delete(deleteTeam);
 
     // Authentication
     app.route('/register')
