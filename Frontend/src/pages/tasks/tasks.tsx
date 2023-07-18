@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./tasks.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/Add";
 import { GridColDef } from "@mui/x-data-grid";
-import { products } from "../../data";
+// import { products } from "../../data";
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
@@ -49,6 +49,13 @@ const columns: GridColDef[] = [
 
 function tasks() {
     const [open, setOpen] = useState(false);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8083/tasks")
+            .then((res) => res.json())
+            .then((data) => setData(data));
+    }, []);
 
     return (
         <div className="tasks">
@@ -56,14 +63,8 @@ function tasks() {
         <h1>My tasks</h1>
         <button onClick={() => setOpen(true)}>Add New Task</button>
         </div>
-        <DataTable slug="products" columns={columns} rows={products} />
-      {/* TEST THE API */}
-
-        {/* {isLoading ? (
-        "Loading..."
-        ) : (
         <DataTable slug="products" columns={columns} rows={data} />
-      )} */}
+
         {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
     </div>
     )
