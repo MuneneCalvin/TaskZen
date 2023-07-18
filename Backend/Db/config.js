@@ -21,7 +21,7 @@ const config = {
             enableArithAbort: true
         }
     },
-    jwtSecret: JWT_SECRET
+    jwt_secret: JWT_SECRET
 };
 
 export default config;

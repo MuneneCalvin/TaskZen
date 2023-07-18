@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from "cors";
+import Routes from './Routes/routes.js';
 
 const app = express();
 dotenv.config();
@@ -23,16 +24,28 @@ app.use(function(req, res, next) {
 });
 
 // Jwt middleware
+app.use((req, res, next) => {
+    if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+        jwt.verify(req.headers.authorization.split(' ')[1], config.jwt_secret, (err, decode) => {
+            if (err) req.user = undefined;
+            req.user = decode;
+            next();
+        });
+    } else {
+        req.user = undefined;
+        next();
+    }
+});
 
 
 // Routes
-
+Routes(app);
 
 
 app.get('/', (req, res) => {
     res.send('Hello from TaskZen!!!');
 });
 
-app.listen(process.env.PORT, () =>
+app.listen(process.env.PORT || 5000, () =>
     console.log(`Server running on port ${process.env.PORT}`)
 );

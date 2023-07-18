@@ -3,34 +3,33 @@ import config from '../Db/config.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-// Register a new user
+// Registering a user
 export const registerUser = async (req, res) => {
     const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     try {
-        let pool = await sql.connect(config);
+        let pool = await sql.connect(config.sql);
         let result = await pool.request()
             .input('username', sql.VarChar, username)
             .input('email', sql.VarChar, email)
-            .query('select * from Users where username = @username or email = @email');
+            .query("SELECT * FROM Users WHERE username = @username OR email = @email");
             const user = result.recordset[0];
             if (user) {
-                res.status(400).json({ message: 'Username or email already exists' });
+                res.status(201).json({ Message: "User registered exists..!!!" });
             } else {
                 await pool.request()
                     .input('username', sql.VarChar, username)
                     .input('email', sql.VarChar, email)
                     .input('password', sql.VarChar, hashedPassword)
-                    .query('insert into Users (username, email, password) values (@username, @email, @password)');
-                res.status(201).json({ message: 'User created successfully' });
+                    .query("insert into Users (username, email, password) values (@username, @email, @password)");
+                res.status(201).json({ Message: "User registered successfully..!!!" });
             }
     } catch (error) {
-        res.status(500).json({ message: `Something went wrong...Try again.!!! ${error.message}` });
+        res.status(404).json({ Message: `Failed to create the user. ${error.message}` });
     } finally {
         sql.close();
     }
 }
-
 
 // Login a user
 export const loginUser = async (req, res) => {
@@ -47,7 +46,6 @@ export const loginUser = async (req, res) => {
             res.status(404).json({ Message: "Incorrect credentials..!!!" });
         } else {
             const token = `JWT ${jwt.sign({ username: user.username, email: user.email }, config.jwt_secret)}`;
-            req.user = user;
             res.status(200).json({ id: user.id, username: user.username, email: user.email, token: token });
         }
     }
