@@ -21,7 +21,7 @@ const Signup = () => {
     });
 
     const onSubmit = (data: any) => {
-        Axios.post('http://localhost:8082/register', data)
+        Axios.post('http://localhost:8083/register', data)
         .then((response) => {
             response.data.Message && alert(response.data.Message);
             navigate('/home');
