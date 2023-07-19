@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./projects.scss";
 import DataTable from "../../components/dataTable/DataTable";
-import Add from "../../components/addProject/addProject";
+import Add from "../../components/add/addProject";
 import { GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [

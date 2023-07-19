@@ -33,16 +33,16 @@ export const getTask = async (req, res) => {
 
 // Adding a task
 export const addTask = async (req, res) => {
-    const { title, priority, deadline, createdAt, status, verified } = req.body;
+    const { name, priority, deadline, createdAt, status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
-            .input('title', sql.NVarChar, title)
-            .input('priority', sql.NVarChar, priority)
-            .input('deadline', sql.NVarChar, deadline)
-            .input('createdAt', sql.NVarChar, createdAt)
-            .input('status', sql.NVarChar, status)
-            .input('verified', sql.NVarChar, verified)
+            .input('name', sql.VarChar, name)
+            .input('priority', sql.VarChar, priority)
+            .input('deadline', sql.VarChar, deadline)
+            .input('createdAt', sql.VarChar, createdAt)
+            .input('status', sql.VarChar, status)
+            .query("insert into Tasks (name, priority, deadline, createdAt, status) values (@name, @priority, @deadline, @createdAt, @status)");
         res.status(200).json({ Message: "Task created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the task. ${error.message}` });
@@ -54,17 +54,16 @@ export const addTask = async (req, res) => {
 // Updating a task
 export const updateTask = async (req, res) => {
     const { id } = req.params;
-    const { title, priority, deadline, status, verified } = req.body;
+    const { name, priority, deadline, status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
             .input('id', sql.Int, id)
-            .input('title', sql.NVarChar, title)
+            .input('name', sql.NVarChar, name)
             .input('priority', sql.NVarChar, priority)
             .input('deadline', sql.NVarChar, deadline)
             .input('status', sql.NVarChar, status)
-            .input('verified', sql.NVarChar, verified)
-            .query("update Tasks set title = @title, priority = @priority, deadline = @deadline, status = @status, verified = @verified where id = @id");
+            .query("update Tasks set name = @name, priority = @priority, deadline = @deadline, status = @status where id = @id");
     } catch (error) {
         res.status(404).json({ Message: `Failed to update the task. ${error.message}` });
     } finally {

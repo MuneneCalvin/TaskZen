@@ -75,21 +75,16 @@ VALUES
 
 
 
-INSERT INTO Tasks (img, title, priority, deadline, createdAt, status, verified)
+INSERT INTO Tasks (img, title, priority, deadline, createdAt, status)
 VALUES
-    ('https://store.sony.com.au/on/demandware.static/-/Sites-sony-master-catalog/default/dw1b537bbb/images/PLAYSTATION5W/PLAYSTATION5W.png', 'Task 1', 'high', '2023-06-01', '2023-06-06', 'In Progress', 1),
-    ('https://www.pngmart.com/files/6/Dell-Laptop-PNG-Image.png', 'Task 2', 'medium', '2023-03-31', '2023-05-01', 'Completed', 1),
-    ('http://images.samsung.com/is/image/samsung/uk-led-tv-hg40ed670ck-hg40ed670ckxxu-001-front', 'Task 3', 'low', '2023-07-08', '2023-03-01', 'Pending', 1),
-    ('https://raylo.imgix.net/iphone-14-blue.png', 'Task 4', 'high', '2023-11-02', '2022-01-02', 'In Progress', 1),
-    ('https://www.signify.com/b-dam/signify/en-aa/about/news/2020/20200903-movie-night-essentials-popcorn-ice-cream-and-the-new-philips-hue-play-gradient-lightstrip/packaging-lighstrip.png', 'Task 5', 'low', '2023-02-01', '2023-02-01', 'Pending', 0),
-    ('https://www.smartworld.it/wp-content/uploads/2019/09/High_Resolution_PNG-MX-Master-3-LEFT-GRAPHITE.png', 'Task 6', 'low', '2023-01-02', '2023-02-01', 'Completed', 1),
-    ('https://www.pngarts.com/files/7/Podcast-Mic-PNG-Picture.png', 'Task 7', 'medium', '2023-06-05', '2023-06-05', 'In Progress', 0),
-    ('https://5.imimg.com/data5/SW/VM/MY-5774620/toshiba-split-ac-2-ton-3-star-rated-ras-24s3ks-500x500.png', 'Task 8', 'high', '2023-02-01', '2023-03-01', 'Pending', 1),
-    ('https://img.productz.com/review_image/102489/preview_sony-kdl-50w800b-50-inch-hdtv-review-superb-picture-102489.png', 'Task 9', 'low', '2023-02-01', '2023-01-02', 'In Progress', 0),
-    ('https://venturebeat.com/wp-content/uploads/2015/07/As_AO1-131_gray_nonglare_win10_03.png?fit=1338%2C1055&strip=all', 'Task 10', 'low', '2023-02-01', '2023-02-01', 'Completed', 1),
-    ('https://example.com/image11.png', 'Task 11', 'medium', '2023-01-01', '2023-01-01', 'In Progress', 1),
-    ('https://example.com/image12.png', 'Task 12', 'low', '2023-02-01', '2023-02-01', 'Pending', 1),
-    ('https://example.com/image13.png', 'Task 13', 'high', '2023-03-01', '2023-03-01', 'Completed', 1),
-    ('https://example.com/image14.png', 'Task 14', 'medium', '2023-04-01', '2023-04-01', 'In Progress', 0),
-    ('https://example.com/image15.png', 'Task 15', 'low', '2023-05-01', '2023-05-01', 'Pending', 1);
+    ('https://store.sony.com.au/on/demandware.static/-/Sites-sony-master-catalog/default/dw1b537bbb/images/PLAYSTATION5W/PLAYSTATION5W.png', 'Task 1', 'high', '2023-06-01', '2023-06-06', 'In Progress'),
+    ('https://www.pngmart.com/files/6/Dell-Laptop-PNG-Image.png', 'Task 2', 'medium', '2023-03-31', '2023-05-01', 'Completed'),
+    ('http://images.samsung.com/is/image/samsung/uk-led-tv-hg40ed670ck-hg40ed670ckxxu-001-front', 'Task 3', 'low', '2023-07-08', '2023-03-01', 'Pending'),
+    ('https://raylo.imgix.net/iphone-14-blue.png', 'Task 4', 'high', '2023-11-02', '2022-01-02', 'In Progress'),
+    ('https://www.signify.com/b-dam/signify/en-aa/about/news/2020/20200903-movie-night-essentials-popcorn-ice-cream-and-the-new-philips-hue-play-gradient-lightstrip/packaging-lighstrip.png', 'Task 5', 'low', '2023-02-01', '2023-02-01', 'Pending'),
+    ('https://www.smartworld.it/wp-content/uploads/2019/09/High_Resolution_PNG-MX-Master-3-LEFT-GRAPHITE.png', 'Task 6', 'low', '2023-01-02', '2023-02-01', 'Completed'),
+    ('https://www.pngarts.com/files/7/Podcast-Mic-PNG-Picture.png', 'Task 7', 'medium', '2023-06-05', '2023-06-05', 'In Progress'),
+    ('https://5.imimg.com/data5/SW/VM/MY-5774620/toshiba-split-ac-2-ton-3-star-rated-ras-24s3ks-500x500.png', 'Task 8', 'high', '2023-02-01', '2023-03-01', 'Pending'),
+    ('https://img.productz.com/review_image/102489/preview_sony-kdl-50w800b-50-inch-hdtv-review-superb-picture-102489.png', 'Task 9', 'low', '2023-02-01', '2023-01-02', 'In Progress'),
+    ('https://venturebeat.com/wp-content/uploads/2015/07/As_AO1-131_gray_nonglare_win10_03.png?fit=1338%2C1055&strip=all', 'Task 10', 'low', '2023-02-01', '2023-02-01', 'Completed');
 

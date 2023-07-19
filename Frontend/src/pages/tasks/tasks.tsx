@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./tasks.scss";
 import DataTable from "../../components/dataTable/DataTable";
-import Add from "../../components/add/Add";
+import Add from "../../components/add/addTask";
 import { GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
@@ -28,7 +28,7 @@ const columns: GridColDef[] = [
     },
     {
         field: "deadline",
-        type: "string",
+        type: "Date",
         headerName: "Deadline",
         width: 200,
     },
@@ -36,7 +36,7 @@ const columns: GridColDef[] = [
         field: "createdAt",
         headerName: "Created At",
         width: 200,
-        type: "string",
+        type: "Date",
     },
     {
         field: "status",
@@ -65,7 +65,7 @@ function tasks() {
 
         <DataTable slug="product" rows={data} columns={columns} />
 
-        {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
+        {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
     )
 }
