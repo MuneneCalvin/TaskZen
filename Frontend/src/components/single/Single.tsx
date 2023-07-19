@@ -1,56 +1,5 @@
-import { useState } from "react";
-// import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, } from "recharts";
-import Add from "../add/updateProject";
-import { GridColDef } from "@mui/x-data-grid";
+import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import "./single.scss";
-
-const columns: GridColDef[] = [
-  { field: "id", headerName: "ID", width: 90 },
-  {
-    field: "img",
-    headerName: "Image",
-    width: 100,
-    renderCell: (params) => {
-      return <img src={params.row.img || "/noavatar.png"} alt="" />;
-    },
-  },
-  {
-    field: "title",
-    type: "string",
-    headerName: "Name",
-    width: 250,
-  },
-  {
-    field: "priority",
-    type: "string",
-    headerName: "Priority",
-    width: 150,
-  },
-  {
-    field: "deadline",
-    type: "Date",
-    headerName: "Deadline",
-    width: 200,
-  },
-  {
-    field: "members",
-    headerName: "Members",
-    type: "string",
-    width: 200,
-  },
-  {
-    field: "createdAt",
-    headerName: "Created At",
-    width: 200,
-    type: "Date",
-  },
-  {
-    field: "assigned",
-    headerName: "Assigned",
-    width: 150,
-    type: "boolean",
-  },
-];
 
 type Props = {
   id: number;
@@ -65,8 +14,6 @@ type Props = {
 };
 
 const Single = (props: Props) => {
-  const  [open, setOpen] = useState(false);
-
   return (
     <div className="single">
       <div className="view">
@@ -74,10 +21,8 @@ const Single = (props: Props) => {
           <div className="topInfo">
             {props.img && <img src={props.img} alt="" />}
             <h1>{props.title}</h1>
-            <button onClick={() => setOpen(true)}>Update</button>
+            <button>Update</button>
           </div>
-          {open && <Add columns={columns} setOpen={setOpen} />}
-
           <div className="details">
             {Object.entries(props.info).map((item) => (
               <div className="item" key={item[0]}>
@@ -88,7 +33,7 @@ const Single = (props: Props) => {
           </div>
         </div>
         <hr />
-        {/* {props.chart && (
+        {props.chart && (
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
@@ -116,7 +61,7 @@ const Single = (props: Props) => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-        )} */}
+        )}
       </div>
       {/* <div className="activities">
         <h2>Latest Activities</h2>
