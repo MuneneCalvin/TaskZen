@@ -3,7 +3,6 @@ import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, } 
 import Add from "../add/Add";
 import { GridColDef } from "@mui/x-data-grid";
 import "./single.scss";
-// import { products } from "../../data";
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },

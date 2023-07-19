@@ -1,6 +1,6 @@
 import Single from "../../components/single/Single"
 import { singleProduct } from "../../data"
-import "./product.scss"
+import "./project.scss"
 
 const Product = () => {
 
@@ -12,4 +12,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Product;
