@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, } from "recharts";
-import Add from "../add/Add";
+import Add from "../add/updateProject";
 import { GridColDef } from "@mui/x-data-grid";
 import "./single.scss";
 
@@ -46,7 +46,7 @@ const Single = (props: Props) => {
             <h1>{props.title}</h1>
             <button onClick={() => setOpen(true)}>Update</button>
           </div>
-          {open && <Add slug="product" columns={columns} setOpen={setOpen} />}
+          {open && <Add columns={columns} setOpen={setOpen} />}
 
           <div className="details">
             {Object.entries(props.info).map((item) => (
