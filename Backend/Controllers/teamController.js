@@ -132,7 +132,7 @@ export const createTeamMember = async (req, res) => {
             .input('phone', sql.VarChar, phone)
             .input('createdAt', sql.DateTime, createdAt)
             .input('verified', sql.Bit, verified)
-            .query("insert into TeamMembers (lastName, firstName, email, phone, createdAt, verified) values (@lastName, @firstName, @email)");
+            .query("insert into Team (lastName, firstName, email, phone, createdAt, verified) values (@lastName, @firstName, @email, @phone, @createdAt, @verified)");
         res.status(200).json({ Message: "Team Member created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the team member. ${error.message}` });

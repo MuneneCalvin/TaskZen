@@ -1,5 +1,5 @@
 import { loginUser, registerUser, getUsers, updateUser } from "../Controllers/userController.js";
-import { getTeams, getTeam, createTeam, updateTeam, deleteTeam } from "../Controllers/teamController.js";
+import { getTeams, getTeam, updateTeam, deleteTeam, createTeamMember } from "../Controllers/teamController.js";
 import { getProjects, getProject, addProject, updateProject, deleteProject } from "../Controllers/projectController.js";
 import { getTasks, getTask, addTask, updateTask, deleteTask } from "../Controllers/taskController.js";
 
@@ -31,11 +31,11 @@ const taskRoutes = (app) => {
     // Teams Members
     app.route('/team')
         .get(getTeams)
-        .post(getTeam);
+        .post(createTeamMember);
 
     app.route('/team/:id')
         .get(getTeam)
-        .post(createTeam)
+        .post(createTeamMember)
         .put(updateTeam)
         .delete(deleteTeam);
 
