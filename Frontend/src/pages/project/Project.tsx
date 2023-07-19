@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Single from "../../components/single/Single";
 import Add from '../../components/add/updateProject';
+import { singleProduct } from "../../data"
 import { GridColDef } from "@mui/x-data-grid";
-import { singleProduct } from "../../data";
 import "./project.scss";
 
 const columns: GridColDef[] = [
@@ -53,17 +53,25 @@ const columns: GridColDef[] = [
   },
 ];
 
-const Product = () => {
+const Project = () => {
+  // const [data, setData] = useState([]);
   const  [open, setOpen] = useState(false);
 
-  //Fetch data and send to Single Component
+  // useEffect(() => {
+  //   fetch("http://localhost:8083/project/${id}")
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
+
+
   return (
     <div className="product">
         <Single {...singleProduct}/>
-        <button onClick={() => setOpen(true)}>Update Me</button>
+        
+        <button onClick={() => setOpen(true)}>Update</button>
         {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
   )
 }
 
-export default Product
+export default Project;
