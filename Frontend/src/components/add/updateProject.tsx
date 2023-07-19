@@ -36,7 +36,7 @@ function addMember(props: Props) {
                 <span className="close" onClick={() => props.setOpen(false)}>
                     X
                 </span>
-                <h1>Add new Project</h1>
+                <h1>Update/Edit Project</h1>
                 <form onSubmit={handleSubmit} >
                 {props.columns
                     .filter((item) => item.field !== "id" && item.field !== "img")

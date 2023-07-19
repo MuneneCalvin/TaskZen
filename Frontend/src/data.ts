@@ -624,30 +624,30 @@ export const singleProduct = {
   //     },
   //   ],
   // },
-  activities: [
-    {
-      text: " John Doe joined the project",
-      time: "3 day ago",
-    },
-    {
-      text: "John Doe added 3 items into their wishlist",
-      time: "1 week ago",
-    },
-    {
-      text: "Mike Doe was relieved from the project",
-      time: "2 weeks ago",
-    },
-    {
-      text: "Anna Doe reviewed the product",
-      time: "1 month ago",
-    },
-    {
-      text: "Michael Doe added Digital Edition into their wishlist",
-      time: "1 month ago",
-    },
-    {
-      text: "Helen Doe reviewed the project",
-      time: "2 months ago",
-    },
-  ],
+//   activities: [
+//     {
+//       text: " John Doe joined the project",
+//       time: "3 day ago",
+//     },
+//     {
+//       text: "John Doe added 3 items into their wishlist",
+//       time: "1 week ago",
+//     },
+//     {
+//       text: "Mike Doe was relieved from the project",
+//       time: "2 weeks ago",
+//     },
+//     {
+//       text: "Anna Doe reviewed the product",
+//       time: "1 month ago",
+//     },
+//     {
+//       text: "Michael Doe added Digital Edition into their wishlist",
+//       time: "1 month ago",
+//     },
+//     {
+//       text: "Helen Doe reviewed the project",
+//       time: "2 months ago",
+//     },
+//   ],
 };

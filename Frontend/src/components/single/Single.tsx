@@ -15,12 +15,42 @@ const columns: GridColDef[] = [
     },
   },
   {
-    field: "status",
+    field: "title",
     type: "string",
-    headerName: "Status",
+    headerName: "Name",
+    width: 250,
+  },
+  {
+    field: "priority",
+    type: "string",
+    headerName: "Priority",
+    width: 150,
+  },
+  {
+    field: "deadline",
+    type: "Date",
+    headerName: "Deadline",
     width: 200,
   },
-]
+  {
+    field: "members",
+    headerName: "Members",
+    type: "string",
+    width: 200,
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 200,
+    type: "Date",
+  },
+  {
+    field: "verified",
+    headerName: "Assigned",
+    width: 150,
+    type: "boolean",
+  },
+];
 
 type Props = {
   id: number;
