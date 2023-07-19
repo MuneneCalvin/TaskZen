@@ -15,7 +15,7 @@ interface Props {
   user: UserInfo;
 }
 
-const Single: React.FC<Props> = ({ id, user }) => {
+const Single: React.FC<Props> = ({ user }) => {
   if (!user) {
     return null;
   }

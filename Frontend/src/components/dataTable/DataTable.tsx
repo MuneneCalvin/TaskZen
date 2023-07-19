@@ -11,7 +11,6 @@ type Props = {
 
 const DataTable = (props: Props) => {
 
-  // TEST THE API
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (id: number) => {
