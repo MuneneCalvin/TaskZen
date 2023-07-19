@@ -64,11 +64,11 @@ function App() {
           element: <Task />,
         },
         {
-          path: "/profile/:id",
+          path: "/users/:id",
           element: <User />,
         },
         {
-          path: "/products/:id",
+          path: "/product/:id",
           element: <Project />,
         },
       ],
