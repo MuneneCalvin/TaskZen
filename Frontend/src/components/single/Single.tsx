@@ -1,27 +1,39 @@
 import "./single.scss";
 
-type Props = {
-  id: number;
+interface UserInfo {
   img?: string;
-  title: string;
-  info: object;
-};
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  createdAt: string;
+  verified: boolean;
+}
 
-const Single = (props: Props) => {
+interface Props {
+  id: number;
+  user: UserInfo;
+}
+
+const Single: React.FC<Props> = ({ id, user }) => {
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className="single">
       <div className="view">
         <div className="info">
           <div className="topInfo">
-            {props.img && <img src={props.img} alt="" />}
-            <h1>{props.title}</h1>
+            {user.img && <img src={user.img} alt="" />}
+            <h1>{`${user.firstName} ${user.lastName}`}</h1>
             <button>Update</button>
           </div>
           <div className="details">
-            {Object.entries(props.info).map((item) => (
-              <div className="item" key={item[0]}>
-                <span className="itemTitle">{item[0]}</span>
-                <span className="itemValue">{item[1]}</span>
+            {Object.entries(user).map(([key, value]) => (
+              <div className="item" key={key}>
+                <span className="itemTitle">{key}</span>
+                <span className="itemValue">{value}</span>
               </div>
             ))}
           </div>
