@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, } from "recharts";
+// import { Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, } from "recharts";
 import Add from "../add/updateProject";
 import { GridColDef } from "@mui/x-data-grid";
 import "./single.scss";
@@ -45,7 +45,7 @@ const columns: GridColDef[] = [
     type: "Date",
   },
   {
-    field: "verified",
+    field: "assigned",
     headerName: "Assigned",
     width: 150,
     type: "boolean",
@@ -88,7 +88,7 @@ const Single = (props: Props) => {
           </div>
         </div>
         <hr />
-        {props.chart && (
+        {/* {props.chart && (
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
@@ -116,9 +116,9 @@ const Single = (props: Props) => {
               </LineChart>
             </ResponsiveContainer>
           </div>
-        )}
+        )} */}
       </div>
-      <div className="activities">
+      {/* <div className="activities">
         <h2>Latest Activities</h2>
         {props.activities && (
           <ul>
@@ -132,7 +132,7 @@ const Single = (props: Props) => {
             ))}
           </ul>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
