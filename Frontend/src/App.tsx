@@ -1,5 +1,7 @@
-import Home from "./pages/home/Home";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Home from "./pages/home/Home";
 import Team from "./pages/team/Team";
 import Projects from "./pages/projects/Projects";
 import Navbar from "./components/navbar/Navbar";
@@ -23,6 +25,7 @@ function App() {
   const Layout = () => {
     return (
       <div className="main">
+        <ToastContainer />
         <Navbar />
         <div className="container">
           <div className="menuContainer">

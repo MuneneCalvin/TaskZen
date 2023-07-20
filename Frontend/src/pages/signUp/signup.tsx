@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Axios from 'axios';
 import './signup.scss';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -23,11 +24,29 @@ const Signup = () => {
     const onSubmit = (data: any) => {
         Axios.post('http://localhost:8083/register', data)
         .then((response) => {
-            response.data.Message && alert(response.data.Message);
+            response.data.Message && toast.success(response.data.Message, {
+                position: "top-right",
+                autoClose: 3001,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
             navigate('/home');
         })
         .catch((error) => {
-            error.response.data.message && alert(error.response.data.message);
+            error.response.data.message && toast.error(error.response.data.message, {
+                position: "top-right",
+                autoClose: 3001,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });;
         });
     }
 
