@@ -4,111 +4,109 @@ import { GridColDef } from "@mui/x-data-grid";
 import "./add.scss";
 
 type TeamMember = {
-  id: number;
-  img: string;
-  lastName: string;
-  firstName: string;
-  email: string;
-  // Add other properties here if needed
+    id: number;
+    img: string;
+    lastName: string;
+    firstName: string;
 };
 
 type Props = {
-  columns: GridColDef[];
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    columns: GridColDef[];
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 async function fetchTeamMembers(): Promise<TeamMember[]> {
-  try {
-    const response = await fetch("http://localhost:8083/team");
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    return [];
-  }
+    try {
+        const response = await fetch("http://localhost:8083/team");
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log(error);
+        return [];
+    }
 }
 
-function UpdateProject(props: Props) {
-  const { id } = useParams();
-  const [formData, setFormData] = useState<{ [key: string]: string }>({});
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+    function UpdateProject(props: Props) {
+    const { id } = useParams();
+    const [formData, setFormData] = useState<{ [key: string]: string }>({});
+    const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
 
-  useEffect(() => {
-    fetchTeamMembers().then((data) => {
-      setTeamMembers(data);
-    });
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      fetch(`http://localhost:8083/project/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
+    useEffect(() => {
+        fetchTeamMembers().then((data) => {
+        setTeamMembers(data);
         });
-    } catch (error) {
-      console.log(error);
-    }
-    props.setOpen(false);
-  };
+    }, []);
 
-  return (
-    <div className="add">
-      <div className="modal">
-        <span className="close" onClick={() => props.setOpen(false)}>
-          X
-        </span>
-        <h1>Update/Edit Project</h1>
-        <form onSubmit={handleSubmit}>
-          {props.columns
-            .filter((item) => item.field !== "id" && item.field !== "img")
-            .map((column) => (
-              <div className="item" key={column.field}>
-                <label>{column.headerName}</label>
-                {column.field === "members" ? (
-                  <select
-                    value={formData[column.field] || ""}
-                    onChange={(e) =>
-                      setFormData((prevFormData) => ({
-                        ...prevFormData,
-                        [column.field]: e.target.value,
-                      }))
-                    }
-                  >
-                    <option value="">Select a member</option>
-                    {teamMembers.map((member) => (
-                      <option key={member.id} value={String(member.firstName)}>
-                        {member.firstName} {member.lastName}
-                      </option>
-                    ))}
-                  </select>
-                ) : (
-                  <input
-                    type={column.type}
-                    placeholder={column.field}
-                    value={formData[column.field] || ""}
-                    onChange={(e) =>
-                      setFormData((prevFormData) => ({
-                        ...prevFormData,
-                        [column.field]: e.target.value,
-                      }))
-                    }
-                  />
-                )}
-              </div>
-            ))}
-          <button>Send</button>
-        </form>
-      </div>
-    </div>
-  );
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+        fetch(`http://localhost:8083/project/${id}`, {
+            method: "PUT",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+            console.log(data);
+            });
+        } catch (error) {
+        console.log(error);
+        }
+        props.setOpen(false);
+    };
+
+    return (
+        <div className="add">
+        <div className="modal">
+            <span className="close" onClick={() => props.setOpen(false)}>
+            X
+            </span>
+            <h1>Update/Edit Project</h1>
+            <form onSubmit={handleSubmit}>
+            {props.columns
+                .filter((item) => item.field !== "id" && item.field !== "img")
+                .map((column) => (
+                <div className="item" key={column.field}>
+                    <label>{column.headerName}</label>
+                    {column.field === "members" ? (
+                    <select
+                        value={formData[column.field] || ""}
+                        onChange={(e) =>
+                        setFormData((prevFormData) => ({
+                            ...prevFormData,
+                            [column.field]: e.target.value,
+                        }))
+                        }
+                    >
+                        <option value="">Select a member</option>
+                        {teamMembers.map((member) => (
+                        <option key={member.id} value={String(member.firstName)}>
+                            {member.firstName} {member.lastName}
+                        </option>
+                        ))}
+                    </select>
+                    ) : (
+                    <input
+                        type={column.type}
+                        placeholder={column.field}
+                        value={formData[column.field] || ""}
+                        onChange={(e) =>
+                        setFormData((prevFormData) => ({
+                            ...prevFormData,
+                            [column.field]: e.target.value,
+                        }))
+                        }
+                    />
+                    )}
+                </div>
+                ))}
+            <button>Send</button>
+            </form>
+        </div>
+        </div>
+    );
 }
 
 export default UpdateProject;
