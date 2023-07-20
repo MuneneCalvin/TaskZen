@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./add.scss";
 
@@ -8,12 +9,13 @@ type Props = {
 }
 
 function addMember(props: Props) {
+    const { id } = useParams();
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8083/project", {
+            fetch(`http://localhost:8083/project/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
