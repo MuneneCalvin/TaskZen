@@ -54,16 +54,17 @@ export const addTask = async (req, res) => {
 // Updating a task
 export const updateTask = async (req, res) => {
     const { id } = req.params;
-    const { name, priority, deadline, status } = req.body;
+    const { name, priority, deadline, createdAt, status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
             .input('id', sql.Int, id)
-            .input('name', sql.NVarChar, name)
-            .input('priority', sql.NVarChar, priority)
-            .input('deadline', sql.NVarChar, deadline)
-            .input('status', sql.NVarChar, status)
-            .query("update Tasks set name = @name, priority = @priority, deadline = @deadline, status = @status where id = @id");
+            .input('name', sql.VarChar, name)
+            .input('priority', sql.VarChar, priority)
+            .input('deadline', sql.VarChar, deadline)
+            .input('createdAt', sql.VarChar, createdAt)
+            .input('status', sql.VarChar, status)
+            .query("update Tasks set name = @name, priority = @priority, deadline = @deadline, createdAt = @createdAt, status = @status where id = @id");
     } catch (error) {
         res.status(404).json({ Message: `Failed to update the task. ${error.message}` });
     } finally {
