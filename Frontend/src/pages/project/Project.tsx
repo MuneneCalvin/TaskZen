@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Single from "../../components/single/Single";
 import Add from '../../components/add/updateProject';
-import { singleProduct } from "../../data";
+import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./project.scss";
 
@@ -54,11 +54,21 @@ const columns: GridColDef[] = [
 ];
 
 const Project = () => {
+  const { id } = useParams();
   const  [open, setOpen] = useState(false);
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:8083/project/${id}`)
+      .then((res) => res.json())
+      .then((data) => setProjects(data));
+  }, []);
 
   return (
     <div className="product">
-        <Single {...singleProduct}/>
+        {projects.map((project) => (
+          <Single key={project} id={project} user={project} />
+        ))}
 
         <button onClick={() => setOpen(true)}>Update</button>
         {open && <Add columns={columns} setOpen={setOpen} />}
