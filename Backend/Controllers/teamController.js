@@ -23,7 +23,7 @@ export const getTeam = async (req, res) => {
         let result = await pool.request()
             .input('id', sql.Int, id)
             .query("select * from Team where id = @id");
-        res.status(200).json(result.recordset[0]);
+        res.status(200).json(result.recordsets[0]);
     } catch (error) {
         res.status(404).json({ Message: `Failed to get the team. ${error.message}` });
     } finally {

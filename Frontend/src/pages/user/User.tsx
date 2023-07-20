@@ -1,19 +1,10 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Single from "../../components/single/Single";
 import Add from "../../components/add/updateTeam";
 import { GridColDef } from "@mui/x-data-grid";
 import "./user.scss";
 
-interface User {
-  id: number;
-  img?: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  createdAt: string;
-  verified: boolean;
-}
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -64,14 +55,19 @@ const columns: GridColDef[] = [
 ];
 
 const Team = () => {
+  const { id } = useParams();
   const [open, setOpen] = useState(false);
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:8083/team");
-      const data = await res.json();
-      setUsers(data);
+      try {
+        const res = await fetch(`http://localhost:8083/team/${id}`);
+        const data = await res.json();
+        setUsers(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     fetchData();
   }, []);
@@ -79,7 +75,7 @@ const Team = () => {
   return (
     <div className="user">
       {users.map((user) => (
-        <Single key={user.id} id={user.id} user={user} />
+        <Single key={user} id={user} user={user} />
       ))}
       <button onClick={() => setOpen(true)}>Update</button>
       {open && <Add columns={columns} setOpen={setOpen} />}
