@@ -22,7 +22,7 @@ export const getProject = async (req, res) => {
         let result = await pool.request()
             .input('id', sql.Int, req.params.id)
             .query("select * from Projects where id = @id");
-        res.status(200).json(result.recordset[0]);
+        res.status(200).json(result.recordsets[0]);
     } catch (error) {
         res.status(404).json({ Message: `Failed to get the project. ${error.message}` });
     } finally {
