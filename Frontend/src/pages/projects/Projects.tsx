@@ -45,10 +45,10 @@ const columns: GridColDef[] = [
     type: "Date",
   },
   {
-    field: "verified",
+    field: "assigned",
     headerName: "Assigned",
     width: 150,
-    type: "boolean",
+    type: "string",
   },
 ];
 
