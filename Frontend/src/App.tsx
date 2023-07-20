@@ -10,6 +10,7 @@ import Calendar from "./pages/calendar/calendar";
 import Task from "./pages/tasks/tasks";
 import Login from "./pages/login/Login";
 import Signup from "./pages/signUp/signup";
+import Profile from "./pages/profile/profile";
 import "./styles/global.scss";
 import User from "./pages/user/User";
 import Project from "./pages/project/Project";
@@ -70,6 +71,10 @@ function App() {
         {
           path: "/project/:id",
           element: <Project />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
       ],
     },

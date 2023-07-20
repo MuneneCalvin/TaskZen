@@ -36,7 +36,7 @@ function addMember(props: Props) {
                 <span className="close" onClick={() => props.setOpen(false)}>
                     X
                 </span>
-                <h1>Update/Edit Team</h1>
+                <h1>Update/Edit Your Info</h1>
                 <form onSubmit={handleSubmit} >
                 {props.columns
                     .filter((item) => item.field !== "id" && item.field !== "img")
@@ -57,3 +57,4 @@ function addMember(props: Props) {
 }
 
 export default addMember
+
