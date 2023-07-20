@@ -64,7 +64,7 @@ export const updateTeamMember = async (req, res) => {
             .input('firstName', sql.VarChar, firstName)
             .input('email', sql.VarChar, email)
             .input('phone', sql.VarChar, phone)
-            .query("update Team set lastName = @lastName, firstName = @firstName, email = @email, phone = @phone");
+            .query("update Team set lastName = @lastName, firstName = @firstName, email = @email, phone = @phone where id = @id");
         res.status(200).json({ Message: "Team Member updated successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to update the team member. ${error.message}` });
