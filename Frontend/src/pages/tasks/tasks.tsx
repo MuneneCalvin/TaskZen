@@ -63,7 +63,7 @@ function tasks() {
         <button onClick={() => setOpen(true)}>Add New Task</button>
         </div>
 
-        <DataTable slug="product" rows={data} columns={columns} />
+        <DataTable slug="task" rows={data} columns={columns} />
 
         {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
