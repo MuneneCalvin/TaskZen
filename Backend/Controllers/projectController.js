@@ -32,7 +32,7 @@ export const getProject = async (req, res) => {
 
 // Add a project
 export const addProject = async (req, res) => {
-    const { title, priority, deadline, members, createdAt, verified } = req.body;
+    const { title, priority, deadline, members, createdAt, assigned } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
@@ -41,8 +41,8 @@ export const addProject = async (req, res) => {
             .input('deadline', sql.DateTime, deadline)
             .input('members', sql.VarChar, members)
             .input('createdAt', sql.DateTime, createdAt)
-            .input('verified', sql.VarChar, verified)
-            .query("insert into Projects (title, priority, deadline, members, createdAt, verified) values (@title, @priority, @deadline, @members, @createdAt, @verified)");
+            .input('assigned', sql.VarChar, assigned)
+            .query("insert into Projects (title, priority, deadline, members, createdAt, assigned) values (@title, @priority, @deadline, @members, @createdAt, @assigned)");
         res.status(200).json({ Message: "Project created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the project. ${error.message}` });
@@ -54,7 +54,7 @@ export const addProject = async (req, res) => {
 // Update a project
 export const updateProject = async (req, res) => {
     const { id } = req.params;
-    const { title, priority, deadline, members, verified } = req.body;
+    const { title, priority, deadline, members, assigned } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
@@ -63,7 +63,8 @@ export const updateProject = async (req, res) => {
             .input('priority', sql.VarChar, priority)
             .input('deadline', sql.DateTime, deadline)
             .input('members', sql.VarChar, members)
-            .input('verified', sql.VarChar, verified)
+            .input('assigned', sql.VarChar, assigned)
+            .query("update Projects set title = @title, priority = @priority, deadline = @deadline, members = @members, assigned = @assigned where id = @id");
         res.status(200).json({ Message: "Project updated successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to update the project. ${error.message}` });
