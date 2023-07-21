@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
+import { toast } from "react-toastify";
 import "./add.scss";
 
 type Props = {
@@ -22,10 +23,28 @@ function addMember(props: Props) {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
+                    data && toast.success("Profile updated successfully!!!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
                 });
         } catch (error) {
-            console.log(error)
+            toast.error("😢 An error occurred while updating profile.!!!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
         props.setOpen(false)
     }

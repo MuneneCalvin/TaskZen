@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
+import { toast } from "react-toastify";
 // import "./addMember.scss";
 
 type Props = {
@@ -22,10 +23,28 @@ function addMember(props: Props) {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
+                    data && toast.success("New task added successfully.!!!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "dark",
+                    });
                 });
         } catch (error) {
-            console.log(error)
+            toast.error("😢 An error occurred while adding a new task.!!!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
         props.setOpen(false)
     }

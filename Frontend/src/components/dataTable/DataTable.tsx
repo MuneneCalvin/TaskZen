@@ -2,6 +2,7 @@ import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 import "./dataTable.scss";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
 type Props = {
   columns: GridColDef[];
@@ -26,6 +27,16 @@ const DataTable = (props: Props) => {
   const handleDelete = (id: number) => {
     //delete the item
     mutation.mutate(id)
+    toast.success('Deleted Successfully..!!!!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
   };
 
   const actionColumn: GridColDef = {

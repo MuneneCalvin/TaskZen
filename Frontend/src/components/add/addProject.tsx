@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
+import { toast } from "react-toastify";
 
 type TeamMember = {
     id: number;
@@ -45,10 +46,28 @@ function addMember(props: Props) {
         })
             .then((res) => res.json())
             .then((data) => {
-            console.log(data);
+                data && toast.success("New project added successfully.!!!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             });
         } catch (error) {
-        console.log(error);
+            toast.error("😢 An error occurred while adding a new project.!!!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
         props.setOpen(false);
     };
