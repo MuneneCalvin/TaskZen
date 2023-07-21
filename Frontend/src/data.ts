@@ -23,7 +23,7 @@ export const menu = [
     listItems: [
       {
         id: 1,
-        title: "Team Members",
+        title: "Team",
         url: "/team",
         icon: "user.svg",
       },
