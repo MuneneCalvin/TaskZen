@@ -1,24 +1,32 @@
 @import "../../styles/responsive.scss";
 
+/* navbar.scss */
 .navbar {
   width: 100%;
-  padding: 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 
   .logo {
     display: flex;
     align-items: center;
     font-weight: bold;
     gap: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+    }
   }
+
   .icons {
     display: flex;
     align-items: center;
     gap: 20px;
 
-    .icon-nav{
+    .icon-nav {
       @include sm{
         display: none;
       }
@@ -26,6 +34,12 @@
 
     .notification {
       position: relative;
+
+      img {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+      }
 
       span {
         background-color: red;
@@ -46,13 +60,40 @@
     .user {
       display: flex;
       align-items: center;
+      cursor: pointer;
       gap: 10px;
 
       img {
-        width: 26px;
-        height: 26px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         object-fit: cover;
+      }
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    button {
+      background: none;
+      border: none;
+      padding: 8px;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: #f0f0f0;
       }
     }
   }
