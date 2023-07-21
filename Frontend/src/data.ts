@@ -152,7 +152,7 @@ export const chartBoxProduct = {
 
 export const chartBoxRevenue = {
   color: "teal",
-  icon: "/user.svg",
+  icon: "/revenueIcon.svg",
   title: "Teams",
   number: "12",
   dataKey: "revenue",

@@ -1,5 +1,5 @@
-import BarChartBox from "../../components/barChartBox/BarChartBox";
-import BigChartBox from "../../components/bigChartBox/BigChartBox";
+// import BarChartBox from "../../components/barChartBox/BarChartBox";
+// import BigChartBox from "../../components/bigChartBox/BigChartBox";
 import ChartBox from "../../components/chartBox/ChartBox";
 import PieChartBox from "../../components/pieCartBox/PieChartBox";
 import TopBox from "../../components/topBox/TopBox";
@@ -27,7 +27,7 @@ const Home = () => {
       <div className="box box6">
         <ChartBox {...chartBoxRevenue} />
       </div>
-      <div className="box box7">
+      {/* <div className="box box7">
         <BigChartBox />
       </div>
       <div className="box box8">
@@ -35,7 +35,7 @@ const Home = () => {
       </div>
       <div className="box box9">
         <BarChartBox />
-      </div>
+      </div> */}
     </div>
   );
 };
