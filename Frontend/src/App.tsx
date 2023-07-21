@@ -1,27 +1,31 @@
+import { useContext } from 'react';
+import { Context } from './context/userContext/Context';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Home from "./pages/home/Home";
-import Team from "./pages/team/Team";
-import Projects from "./pages/projects/Projects";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
-import Menu from "./components/menu/Menu";
-import Landing from "./pages/landing/landing";
-import Calendar from "./pages/calendar/calendar";
-import Task from "./pages/tasks/tasks";
-import Login from "./pages/login/Login";
-import Signup from "./pages/signUp/signup";
-import Profile from "./pages/profile/profile";
-import "./styles/global.scss";
-import User from "./pages/user/User";
-import Project from "./pages/project/Project";
-import { QueryClient, QueryClientProvider,} from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
+import Home from './pages/home/Home';
+import Team from './pages/team/Team';
+import Projects from './pages/projects/Projects';
+import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+import Menu from './components/menu/Menu';
+import Landing from './pages/landing/landing';
+import Calendar from './pages/calendar/calendar';
+import Task from './pages/tasks/tasks';
+import Login from './pages/login/Login';
+import Signup from './pages/signUp/signup';
+import Profile from './pages/profile/profile';
+import './styles/global.scss';
+import User from './pages/user/User';
+import Project from './pages/project/Project';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 
 const queryClient = new QueryClient();
 
 function App() {
+  const { user } = useContext(Context);
+
   const Layout = () => {
     return (
       <div className="main">
@@ -42,60 +46,26 @@ function App() {
     );
   };
 
-  const router = createBrowserRouter([
-    {
-      // path: "/",
-      element: <Layout />,
-      children: [
-        {
-          path: "/home",
-          element: <Home />,
-        },
-        {
-          path: "/team",
-          element: <Team />,
-        },
-        {
-          path: "/projects",
-          element: <Projects />,
-        },
-        {
-          path: "/calendar",
-          element: <Calendar />,
-        },
-        {
-          path: "/tasks",
-          element: <Task />,
-        },
-        {
-          path: "/team/:id",
-          element: <User />,
-        },
-        {
-          path: "/project/:id",
-          element: <Project />,
-        },
-        {
-          path: "/profile",
-          element: <Profile />,
-        },
-      ],
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    {
-      path: "/signup",
-      element: <Signup />,
-    },
-    {
-      path: "/",
-      element: <Landing />,
-    },
-  ]);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
 
-  return <RouterProvider router={router} />;
+        <Route element={<Layout />}>
+          <Route path="/home" element={user ? <Home /> : <Landing />} />
+          <Route path="/team" element={user ? <Team /> : <Landing />} />
+          <Route path="/projects" element={user ? <Projects /> : <Landing />} />
+          <Route path="/calendar" element={user ? <Calendar /> : <Landing />} />
+          <Route path="/tasks" element={user ? <Task /> : <Landing />} />
+          <Route path="/team/:id" element={user ? <User /> : <Landing />} />
+          <Route path="/project/:id" element={user ? <Project /> : <Landing />} />
+          <Route path="/profile" element={user ? <Profile /> : <Landing />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

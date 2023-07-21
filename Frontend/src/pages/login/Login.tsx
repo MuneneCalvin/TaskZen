@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { Context } from '../../context/userContext/Context.tsx';
 import './Login.scss';
 import Axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const { dispatch } = useContext(Context);
@@ -25,6 +26,16 @@ const Login = () => {
     .then (({ data }) => {
       if (data.token) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: data});
+        data.username && toast.success('🦄 Welcome Back...', {
+          position: "top-right",
+          autoClose: 3001,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
         navigate('/home');
       }
     })
