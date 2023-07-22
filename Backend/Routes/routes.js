@@ -1,6 +1,6 @@
 import { loginUser, registerUser, getUser, getUsers, updateUser } from "../Controllers/userController.js";
 import { getTeams, getTeam, createTeamMember, updateTeamMember, deleteTeamMember, getProjectTeamMembers, getProjectComments, getProjectTasks } from "../Controllers/teamController.js";
-import { getProjects, getProject, addProject, updateProject, deleteProject, getProjectTasks, getProjectComments, getProjectUsers, getProjectTeams, getUserTasks } from "../Controllers/projectController.js";
+import { getProjects, getProject, addProject, updateProject, deleteProject, getProjectUsers, getProjectTeams, getUserTasks } from "../Controllers/projectController.js";
 import { getTasks, getTask, addTask, updateTask, deleteTask, updateTaskStatus, getTasksByProjectId, getTasksByTeamId, getTasksByUserId } from "../Controllers/taskController.js";
 import { getComments, getComment, addComment, updateComment, deleteComment, getCommentsByTaskId, getCommentsByUserId, getCommentsByProjectId, getCommentsByTeamId } from "../Controllers/commentController.js";
 

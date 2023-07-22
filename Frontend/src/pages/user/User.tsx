@@ -50,7 +50,7 @@ const Team = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:8083/team/${id}`);
+        const res = await fetch(`http://localhost:8085/team/${id}`);
         const data = await res.json();
         setUsers(data);
       } catch (err) {

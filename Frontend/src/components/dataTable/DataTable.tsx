@@ -15,7 +15,7 @@ const DataTable = (props: Props) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (id: number) => {
-      return fetch(`http://localhost:8083/${props.slug}/${id}`, {
+      return fetch(`http://localhost:8085/${props.slug}/${id}`, {
         method: "delete",
       });
     },

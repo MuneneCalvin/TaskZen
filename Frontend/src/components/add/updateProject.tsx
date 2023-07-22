@@ -41,7 +41,7 @@ async function fetchTeamMembers(): Promise<TeamMember[]> {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-        fetch(`http://localhost:8083/project/${id}`, {
+        fetch(`http://localhost:8085/project/${id}`, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

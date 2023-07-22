@@ -20,7 +20,7 @@ const SettingsPage = () => {
         event.preventDefault();
 
         try {
-            fetch('http://localhost:8083/user', {
+            fetch('http://localhost:8085/user', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
