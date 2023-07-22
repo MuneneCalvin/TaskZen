@@ -35,7 +35,7 @@ export const addProject = async (req, res) => {
     const { name, priority, deadline, assignedTo, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        let result = await pool.request()
+        await pool.request()
             .input('name', sql.VarChar, name)
             .input('priority', sql.VarChar, priority)
             .input('deadline', sql.DateTime, deadline)
@@ -56,7 +56,7 @@ export const updateProject = async (req, res) => {
     const { name, priority, deadline, assignedTo, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        let result = await pool.request()
+        await pool.request()
             .input('id', sql.Int, id)
             .input('name', sql.VarChar, name)
             .input('priority', sql.VarChar, priority)
@@ -77,12 +77,27 @@ export const deleteProject = async (req, res) => {
     const { id } = req.params;
     try {
         let pool = await sql.connect(config.sql);
-        let result = await pool.request()
+        await pool.request()
             .input('id', sql.Int, id)
             .query("delete from Projects where id = @id");
         res.status(200).json({ Message: "Project deleted successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to delete the project. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all tasks of a project
+export const getProjectTasks = async (req, res) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, req.params.projectId)
+            .query("select * from Tasks where projectId = @projectId");
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the tasks. ${error.message}` });
     } finally {
         sql.close();
     }
