@@ -16,7 +16,7 @@ type Props = {
 
 async function fetchTeamMembers(): Promise<TeamMember[]> {
     try {
-        const response = await fetch("http://localhost:8083/team");
+        const response = await fetch("http://localhost:8085/team");
         const data = await response.json();
         return data;
     } catch (error) {
@@ -86,7 +86,7 @@ function addMember(props: Props) {
                 .map((column) => (
                 <div className="item" key={column.field}>
                     <label>{column.headerName}</label>
-                    {column.field === "members" ? (
+                    {column.field === "assignedTo" ? (
                     <select
                         value={formData[column.field] || ""}
                         onChange={(e) =>
@@ -96,7 +96,7 @@ function addMember(props: Props) {
                         }))
                         }
                     >
-                        <option value="">Select a member</option>
+                        <option value="">Assign to</option>
                         {teamMembers.map((member) => (
                         <option key={member.id} value={String(member.firstName)}>
                             {member.firstName} {member.lastName}
