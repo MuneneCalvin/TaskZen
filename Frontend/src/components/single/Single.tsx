@@ -27,7 +27,7 @@ const Single: React.FC<Props> = ({ user }) => {
           <div className="topInfo">
             {user.img && <img src={user.img} alt="" />}
             <h1>{`${user.firstName} ${user.lastName}`}</h1>
-            <button>Update</button>
+            {/* <button className="update-Btn">Update</button> */}
           </div>
           <div className="details">
             {Object.entries(user).map(([key, value]) => (

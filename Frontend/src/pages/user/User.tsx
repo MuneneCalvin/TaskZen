@@ -71,7 +71,7 @@ const Team = () => {
       {users.map((user) => (
         <Single key={user} id={user} user={user} />
       ))}
-      <button onClick={() => setOpen(true)}>Update</button>
+      <button className="update-Btn" onClick={() => setOpen(true)}>Update</button>
       {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
   );

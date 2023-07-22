@@ -70,7 +70,7 @@ const Project = () => {
           <Single key={project} id={project} user={project} />
         ))}
 
-        <button onClick={() => setOpen(true)}>Update</button>
+        <button className="update-Btn" onClick={() => setOpen(true)}>Update</button>
         {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
   )
