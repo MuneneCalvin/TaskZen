@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
-// import "./addMember.scss";
+import "./add.scss";
 
 type Props = {
     columns: GridColDef[];
@@ -68,7 +68,7 @@ function addMember(props: Props) {
                             })))}/>
                         </div>
                     ))}
-                    <button>Send</button>
+                    <button className="add-Btn">Send</button>
                 </form>
             </div>
         </div>

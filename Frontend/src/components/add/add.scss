@@ -55,11 +55,21 @@
           border: 1px solid $soft-color;
           border-radius: 3px;
         }
+
+        select {
+          padding: 10px;
+          outline: none;
+          border: 1px solid $soft-color;
+          border-radius: 3px;
+        }
       }
       button {
         width: 100%;
         padding: 10px;
         cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        background-color: #2ecc71;
       }
     }
   }
