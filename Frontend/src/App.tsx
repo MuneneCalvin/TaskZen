@@ -11,7 +11,8 @@ import Footer from './components/footer/Footer';
 import Menu from './components/menu/Menu';
 import Landing from './pages/landing/landing';
 import Calendar from './pages/calendar/calendar';
-import Task from './pages/tasks/tasks';
+import Tasks from './pages/tasks/tasks';
+import Task from './pages/task/task';
 import Login from './pages/login/Login';
 import Signup from './pages/signUp/signup';
 import Profile from './pages/profile/profile';
@@ -59,7 +60,8 @@ function App() {
           <Route path="/team" element={user ? <Team /> : <Landing />} />
           <Route path="/projects" element={user ? <Projects /> : <Landing />} />
           <Route path="/calendar" element={user ? <Calendar /> : <Landing />} />
-          <Route path="/tasks" element={user ? <Task /> : <Landing />} />
+          <Route path="/tasks" element={user ? <Tasks /> : <Landing />} />
+          <Route path="/task/:id" element={user ? <Task /> : <Landing />} />
           <Route path="/team/:id" element={user ? <User /> : <Landing />} />
           <Route path="/project/:id" element={user ? <Project /> : <Landing />} />
           <Route path="/profile" element={user ? <Profile /> : <Landing />} />
