@@ -33,17 +33,16 @@ export const getTeam = async (req, res) => {
 
 // Create a team member
 export const createTeamMember = async (req, res) => {
-    const { lastName, firstName, email, phone, createdAt, verified } = req.body;
+    const { lastName, firstName, email, phone, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        let result = await pool.request()
+        await pool.request()
             .input('lastName', sql.VarChar, lastName)
             .input('firstName', sql.VarChar, firstName)
             .input('email', sql.VarChar, email)
             .input('phone', sql.VarChar, phone)
             .input('createdAt', sql.DateTime, createdAt)
-            .input('verified', sql.Bit, verified)
-            .query("insert into Team (lastName, firstName, email, phone, createdAt, verified) values (@lastName, @firstName, @email, @phone, @createdAt, @verified)");
+            .query("insert into Team (lastName, firstName, email, phone, createdAt ) values (@lastName, @firstName, @email, @phone, @createdAt )");
         res.status(200).json({ Message: "Team Member created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the team member. ${error.message}` });
@@ -58,7 +57,7 @@ export const updateTeamMember = async (req, res) => {
     const { lastName, firstName, email, phone } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        let result = await pool.request()
+        await pool.request()
             .input('id', sql.Int, id)
             .input('lastName', sql.VarChar, lastName)
             .input('firstName', sql.VarChar, firstName)
