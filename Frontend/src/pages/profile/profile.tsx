@@ -16,7 +16,7 @@ const columns: GridColDef[] = [
     },
     },
     {
-    field: "Name",
+    field: "username",
     type: "string",
     headerName: "Full Name",
     width: 150,
