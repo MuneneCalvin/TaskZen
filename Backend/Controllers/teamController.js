@@ -87,3 +87,51 @@ export const deleteTeamMember = async (req, res) => {
         sql.close();
     }
 }
+
+// Get team members in a project
+export const getProjectTeamMembers = async (req, res) => {
+    const { projectId } = req.params;
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, projectId)
+            .query("select * from Team where projectId = @projectId");
+        res.status(200).json(result.recordsets[0]);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the team members in the project. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all comments in a project
+export const getProjectComments = async (req, res) => {
+    const { projectId } = req.params;
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, projectId)
+            .query("select * from Comments where projectId = @projectId");
+        res.status(200).json(result.recordsets[0]);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the comments in the project. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all tasks in a project
+export const getProjectTasks = async (req, res) => {
+    const { projectId } = req.params;
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, projectId)
+            .query("select * from Tasks where projectId = @projectId");
+        res.status(200).json(result.recordsets[0]);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the tasks in the project. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
