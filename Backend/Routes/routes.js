@@ -1,6 +1,6 @@
 import { loginUser, registerUser, getUser, getUsers, updateUser } from "../Controllers/userController.js";
 import { getTeams, getTeam, createTeamMember, updateTeamMember, deleteTeamMember } from "../Controllers/teamController.js";
-import { getProjects, getProject, addProject, updateProject, deleteProject } from "../Controllers/projectController.js";
+import { getProjects, getProject, addProject, updateProject, deleteProject, getProjectTasks, getProjectComments, getProjectUsers, getProjectTeams, getUserTasks } from "../Controllers/projectController.js";
 import { getTasks, getTask, addTask, updateTask, deleteTask } from "../Controllers/taskController.js";
 import { getComments, getComment, addComment, updateComment, deleteComment, getCommentsByTaskId, getCommentsByUserId, getCommentsByProjectId, getCommentsByTeamId } from "../Controllers/commentController.js";
 
@@ -50,6 +50,21 @@ const taskRoutes = (app) => {
         .get(getProject)
         .put(updateProject)
         .delete(deleteProject);
+
+    app.route('/project/:projectId/tasks')
+        .get(getProjectTasks);
+
+    app.route('/project/:projectId/comments')
+        .get(getProjectComments);
+
+    app.route('/project/:projectId/users')
+        .get(getProjectUsers);
+
+    app.route('/project/:projectId/teams')
+        .get(getProjectTeams);
+
+    app.route('/project/:projectId/users/:userId/tasks')
+        .get(getUserTasks);
 
 
     // Teams Members
