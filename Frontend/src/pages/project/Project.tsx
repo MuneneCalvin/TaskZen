@@ -34,8 +34,8 @@ const columns: GridColDef[] = [
     width: 200,
   },
   {
-    field: "members",
-    headerName: "Members",
+    field: "assignedTo",
+    headerName: "Assigned To",
     type: "string",
     width: 200,
   },
@@ -44,12 +44,6 @@ const columns: GridColDef[] = [
     headerName: "Created At",
     width: 200,
     type: "Date",
-  },
-  {
-    field: "assigned",
-    headerName: "Assigned",
-    width: 150,
-    type: "boolean",
   },
 ];
 
