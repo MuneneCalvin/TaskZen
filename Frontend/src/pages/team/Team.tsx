@@ -44,12 +44,6 @@ const columns: GridColDef[] = [
     width: 200,
     type: "Date",
   },
-  {
-    field: "verified",
-    headerName: "Verified",
-    width: 150,
-    type: "boolean",
-  },
 ];
 
 const Users = () => {

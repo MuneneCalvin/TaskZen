@@ -40,12 +40,6 @@ const columns: GridColDef[] = [
     headerName: "Phone",
     width: 200,
   },
-  {
-    field: "verified",
-    headerName: "Verified",
-    width: 150,
-    type: "boolean",
-  },
 ];
 
 const Team = () => {
