@@ -60,7 +60,7 @@ export const menu = [
       {
         id: 1,
         title: "Settings",
-        url: "/home",
+        url: "/settings",
         icon: "setting.svg",
       },
       {

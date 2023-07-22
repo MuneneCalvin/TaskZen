@@ -1,0 +1,71 @@
+.settings-container {
+    margin-left: 280px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .settings-container h3{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .profile-photo-container .profile-photo {
+        margin-top: 20px;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    }
+
+    .profile-photo-input {
+    margin-top: 10px;
+    padding: 5px;
+    // border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #007bff;
+    cursor: pointer;
+    }
+
+    .settings-form {
+    margin-top: 20px;
+    }
+
+    .settings-form-group {
+    display: flex;
+    flex-direction: column;
+    }
+
+    form {
+    display: flex;
+    flex-direction: column;
+    }
+
+    form label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    form input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    form button {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2ecc71;
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
