@@ -21,7 +21,7 @@ export const loginRequired = (req, res, next) => {
 
 // Registering a user
 export const registerUser = async (req, res) => {
-    const { username, email, password } = req.body;
+    const { username, email, phone, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     try {
         let pool = await sql.connect(config.sql);
@@ -36,8 +36,9 @@ export const registerUser = async (req, res) => {
                 await pool.request()
                     .input('username', sql.VarChar, username)
                     .input('email', sql.VarChar, email)
+                    .input('phone', sql.VarChar, phone)
                     .input('password', sql.VarChar, hashedPassword)
-                    .query("insert into Users (username, email, password) values (@username, @email, @password)");
+                    .query("INSERT INTO Users (username, email, phone, password) VALUES (@username, @email, @phone, @password)");
                 res.status(201).json({ Message: "User registered successfully..!!!" });
             }
     } catch (error) {
@@ -101,14 +102,15 @@ export const getUser = async (req, res) => {
 // Updating a user
 export const updateUser = async (req, res) => {
     const { id } = req.params;
-    const { username, email } = req.body;
+    const { username, email, phone, password } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let user = await pool.request()
             .input('id', sql.Int, id)
             .input('username', sql.VarChar, username)
             .input('email', sql.VarChar, email)
-            .query('UPDATE Users SET username = @username, email = @email WHERE id = @id');
+            .input('phone', sql.VarChar, phone)
+            .input('password', sql.VarChar, password)
         res.json(user.recordset[0]);
     } catch (error) {
         res.status(500).json({message: `Something went wrong. ${error}`});
@@ -117,3 +119,18 @@ export const updateUser = async (req, res) => {
     }
 };
 
+// Deleting a user
+export const deleteUser = async (req, res) => {
+    const { id } = req.params;
+    try {
+        let pool = await sql.connect(config.sql);
+        let user = await pool.request()
+            .input('id', sql.Int, id)
+            .query('DELETE FROM Users WHERE id = @id');
+        res.json(user.recordset[0]);
+    } catch (error) {
+        res.status(500).json({message: `Something went wrong. ${error}`});
+    } finally {
+        sql.close();
+    }
+}
