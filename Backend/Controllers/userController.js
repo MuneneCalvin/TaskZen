@@ -89,7 +89,7 @@ export const getUser = async (req, res) => {
         let user = await pool.request()
             .input('id', sql.Int, id)
             .query('SELECT * FROM Users WHERE id = @id');
-        res.json(user.recordset[0]);
+        res.json(user.recordsets[0]);
     } catch (error) {
         res.status(500).json({message: `Something went wrong. ${error}`});
     } finally {
@@ -107,7 +107,7 @@ export const updateUser = async (req, res) => {
         let user = await pool.request()
             .input('id', sql.Int, id)
             .input('username', sql.VarChar, username)
-            .input('Email', sql.VarChar, email)
+            .input('email', sql.VarChar, email)
             .query('UPDATE Users SET username = @username, email = @email WHERE id = @id');
         res.json(user.recordset[0]);
     } catch (error) {
