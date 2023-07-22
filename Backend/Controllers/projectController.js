@@ -103,3 +103,62 @@ export const getProjectTasks = async (req, res) => {
     }
 }
 
+// Get all comments of a project
+export const getProjectComments = async (req, res) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, req.params.projectId)
+            .query("select * from Comments where projectId = @projectId");
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the comments. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all users of a project
+export const getProjectUsers = async (req, res) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, req.params.projectId)
+            .query("select * from Users where projectId = @projectId");
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the users. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all teams of a project
+export const getProjectTeams = async (req, res) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('projectId', sql.Int, req.params.projectId)
+            .query("select * from Teams where projectId = @projectId");
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the teams. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
+
+// Get all tasks of a user
+export const getUserTasks = async (req, res) => {
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('userId', sql.Int, req.params.userId)
+            .query("select * from Tasks where userId = @userId");
+        res.status(200).json(result.recordset);
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to get the tasks. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
