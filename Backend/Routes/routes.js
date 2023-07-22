@@ -2,9 +2,33 @@ import { loginUser, registerUser, getUser, getUsers, updateUser } from "../Contr
 import { getTeams, getTeam, createTeamMember, updateTeamMember, deleteTeamMember } from "../Controllers/teamController.js";
 import { getProjects, getProject, addProject, updateProject, deleteProject } from "../Controllers/projectController.js";
 import { getTasks, getTask, addTask, updateTask, deleteTask } from "../Controllers/taskController.js";
+import { getComments, getComment, addComment, updateComment, deleteComment, getCommentsByTaskId, getCommentsByUserId, getCommentsByProjectId, getCommentsByTeamId } from "../Controllers/commentController.js";
 
 
 const taskRoutes = (app) => {
+
+    // Comments
+    app.route('/comment')
+        .get(getComments)
+        .post(addComment);
+
+    app.route('/comment/:id')
+        .get(getComment)
+        .put(updateComment)
+        .delete(deleteComment);
+
+    app.route('/comment/task/:taskId')
+        .get(getCommentsByTaskId);
+
+    app.route('/comment/user/:userId')
+        .get(getCommentsByUserId);
+
+    app.route('/comment/project/:projectId')
+        .get(getCommentsByProjectId);
+
+    app.route('/comment/team/:teamId')
+        .get(getCommentsByTeamId);
+
 
     // Tasks
     app.route('/task')
@@ -43,12 +67,14 @@ const taskRoutes = (app) => {
     // Authentication
     app.route('/register')
         .post(registerUser)
-        .get(getUsers);
+        .get(getUsers)
+        .delete(deleteTeamMember);
 
     app.route('/login')
         .post(loginUser)
         .get(getUser)
-        .put(updateUser);
+        .put(updateUser)
+        .delete(deleteTeamMember);
 
 }
 
