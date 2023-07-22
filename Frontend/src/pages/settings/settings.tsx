@@ -6,6 +6,7 @@ const SettingsPage = () => {
     const [profilePhoto, setProfilePhoto] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
 
     const handleProfilePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,6 +29,7 @@ const SettingsPage = () => {
                     profilePhoto,
                     username,
                     email,
+                    phone,
                     password,
                 }),
             })
@@ -76,6 +78,7 @@ const SettingsPage = () => {
                 </div>
 
                 <form className="settings-form">
+
                     <div className="settings-form-group">
                         <label>Username</label>
                         <input
@@ -85,6 +88,7 @@ const SettingsPage = () => {
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
                         />
                     </div>
+
                     <div className="settings-form-group">
                         <label>Email</label>
                         <input
@@ -94,6 +98,17 @@ const SettingsPage = () => {
                             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                         />
                     </div>
+
+                    <div className="settings-form-group">
+                        <label>Phone No.</label>
+                        <input
+                            type="phone"
+                            placeholder="Phone No."
+                            value={phone}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPhone(e.target.value)}
+                        />
+                    </div>
+
                     <div className="settings-form-group">
                         <label> New Password</label>
                         <input
