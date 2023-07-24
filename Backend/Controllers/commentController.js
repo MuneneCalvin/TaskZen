@@ -32,13 +32,14 @@ export const getComment = async (req, res) => {
 
 // Add a comment
 export const addComment = async (req, res) => {
-    const { comment, createdAt } = req.body;
+    const { comment, createdAt, projectId } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
             .input('comment', sql.VarChar, comment)
             .input('createdAt', sql.DateTime, createdAt)
-            .query("insert into Comments (comment, createdAt) values (@comment, @createdAt)");
+            .input('projectId', sql.Int, projectId)
+            .query("insert into Comments (comment, createdAt, projectId) values (@comment, @createdAt, @projectId)");
         res.status(200).json({ Message: "Comment created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the comment. ${error.message}` });
