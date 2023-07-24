@@ -5,6 +5,11 @@ import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./project.scss";
 
+interface Comment {
+  id: number;
+  comment: string;
+}
+
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
   {
@@ -49,8 +54,10 @@ const columns: GridColDef[] = [
 
 const Project = () => {
   const { id } = useParams();
+  // const { id } = useParams();
   const  [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
     fetch(`http://localhost:8085/project/${id}`)
@@ -58,13 +65,33 @@ const Project = () => {
       .then((data) => setProjects(data));
   }, []);
 
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
+  const fetchComments = async () => {
+    const res = await fetch(`http://localhost:8085/project/${id}/comments`);
+    const data = await res.json();
+    setComments(data);
+  }
+
   return (
     <div className="product">
         {projects.map((project) => (
           <Single key={project} id={project} user={project} />
         ))}
 
+      <div className="comments-container">
+        <h2>Comments</h2>
+        {comments.map((comment) => (
+          <div key={comment.id} className="comment">
+            <p>{comment.comment}</p>
+          </div>
+        ))}
+      </div>
+
         <button className="update-Btn" onClick={() => setOpen(true)}>Update</button>
+        <button className="update-Btn" onClick={() => setOpen(true)}>Add Comment</button>
         {open && <Add columns={columns} setOpen={setOpen} />}
     </div>
   )
