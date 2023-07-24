@@ -12,3 +12,20 @@
     }
     }
 }
+.add-Btn {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background-color: #fff;
+        color: #2c3e50;
+        border: 1px solid #2c3e50;
+    }
+}

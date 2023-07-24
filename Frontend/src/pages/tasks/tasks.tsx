@@ -60,7 +60,7 @@ function tasks() {
         <div className="tasks">
         <div className="info">
         <h1>My tasks</h1>
-        <button onClick={() => setOpen(true)}>Add New Task</button>
+        <button className="add-Btn" onClick={() => setOpen(true)}>Add New Task</button>
         </div>
 
         <DataTable slug="task" rows={data} columns={columns} />

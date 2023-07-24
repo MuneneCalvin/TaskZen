@@ -60,7 +60,7 @@ const Products = () => {
     <div className="products">
       <div className="info">
         <h1>Projects</h1>
-        <button onClick={() => setOpen(true)}>Add New Project</button>
+        <button className="add-Btn" onClick={() => setOpen(true)}>Add New Project</button>
       </div>
 
       <DataTable slug="project" columns={columns} rows={data} />
