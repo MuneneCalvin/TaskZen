@@ -4,7 +4,7 @@
     margin: 0 auto;
     padding: 20px;
 
-    .settings-container h3{
+    .settings-container h{
         font-size: 1.5rem;
         font-weight: 600;
         margin-bottom: 20px;
@@ -22,7 +22,6 @@
     .profile-photo-input {
     margin-top: 10px;
     padding: 5px;
-    // border: 1px solid #ccc;
     border-radius: 5px;
     color: #fff;
     background-color: #007bff;
@@ -68,4 +67,7 @@
         font-weight: 600;
         cursor: pointer;
     }
+}
+.settings-heading{
+    font-family: cursive;
 }
