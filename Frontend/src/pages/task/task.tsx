@@ -50,7 +50,7 @@ const columns: GridColDef[] = [
 const Task = () => {
     const { id } = useParams();
     const  [open, setOpen] = useState(false);
-    const [task, setTask] = useState([]);
+    const [tasks, setTask] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:8085/task/${id}`)
@@ -60,7 +60,7 @@ const Task = () => {
 
     return (
         <div className="product">
-        {task.map((task) => (
+        {tasks.map((task) => (
             <Single key={task} id={task} user={task} />
         ))}
 

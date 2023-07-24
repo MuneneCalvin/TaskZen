@@ -35,7 +35,7 @@ export const addComment = async (req, res) => {
     const { comment, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('comment', sql.VarChar, comment)
             .input('createdAt', sql.DateTime, createdAt)
             .query("insert into Comments (comment, createdAt) values (@comment, @createdAt)");
@@ -53,7 +53,7 @@ export const updateComment = async (req, res) => {
     const { comment, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .input('comment', sql.VarChar, comment)
             .input('createdAt', sql.DateTime, createdAt)
@@ -71,7 +71,7 @@ export const deleteComment = async (req, res) => {
     const { id } = req.params;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .query("delete from Comments where id = @id");
         res.status(200).json({ Message: "Comment deleted successfully..!!!" });

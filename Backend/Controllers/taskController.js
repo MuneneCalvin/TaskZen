@@ -20,7 +20,7 @@ export const getTasks = async (req, res) => {
 export const getTask = async (req, res) => {
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, req.params.id)
             .query("select * from Tasks where id = @id");
         res.status(200).json(result.recordset[0]);
@@ -36,7 +36,7 @@ export const addTask = async (req, res) => {
     const { name, priority, deadline, createdAt, status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('name', sql.VarChar, name)
             .input('priority', sql.VarChar, priority)
             .input('deadline', sql.VarChar, deadline)
@@ -57,7 +57,7 @@ export const updateTask = async (req, res) => {
     const { name, priority, deadline, createdAt, status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .input('name', sql.VarChar, name)
             .input('priority', sql.VarChar, priority)
@@ -77,7 +77,7 @@ export const deleteTask = async (req, res) => {
     const { id } = req.params;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .query("delete from Tasks where id = @id");
         res.status(200).json({ Message: "Task deleted successfully..!!!" });
@@ -94,7 +94,7 @@ export const updateTaskStatus = async (req, res) => {
     const { status } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .input('status', sql.VarChar, status)
             .query("update Tasks set status = @status where id = @id");

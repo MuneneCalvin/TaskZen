@@ -36,7 +36,7 @@ export const createTeamMember = async (req, res) => {
     const { lastName, firstName, email, phone, createdAt } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('lastName', sql.VarChar, lastName)
             .input('firstName', sql.VarChar, firstName)
             .input('email', sql.VarChar, email)
@@ -57,7 +57,7 @@ export const updateTeamMember = async (req, res) => {
     const { lastName, firstName, email, phone } = req.body;
     try {
         let pool = await sql.connect(config.sql);
-        await pool.request()
+        let result = await pool.request()
             .input('id', sql.Int, id)
             .input('lastName', sql.VarChar, lastName)
             .input('firstName', sql.VarChar, firstName)

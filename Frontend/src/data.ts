@@ -581,73 +581,73 @@ export const singleProduct = {
     Due_date: "02/31/2023",
     status: "In Progress",
   },
-  // chart: {
-  //   dataKeys: [
-  //     { name: "visits", color: "#82ca9d" },
-  //     { name: "orders", color: "#8884d8" },
-  //   ],
-  //   data: [
-  //     {
-  //       name: "Sun",
-  //       visits: 4000,
-  //       orders: 2400,
-  //     },
-  //     {
-  //       name: "Mon",
-  //       visits: 3000,
-  //       orders: 1398,
-  //     },
-  //     {
-  //       name: "Tue",
-  //       visits: 2000,
-  //       orders: 3800,
-  //     },
-  //     {
-  //       name: "Wed",
-  //       visits: 2780,
-  //       orders: 3908,
-  //     },
-  //     {
-  //       name: "Thu",
-  //       visits: 1890,
-  //       orders: 4800,
-  //     },
-  //     {
-  //       name: "Fri",
-  //       visits: 2390,
-  //       orders: 3800,
-  //     },
-  //     {
-  //       name: "Sat",
-  //       visits: 3490,
-  //       orders: 4300,
-  //     },
-  //   ],
-  // },
-//   activities: [
-//     {
-//       text: " John Doe joined the project",
-//       time: "3 day ago",
-//     },
-//     {
-//       text: "John Doe added 3 items into their wishlist",
-//       time: "1 week ago",
-//     },
-//     {
-//       text: "Mike Doe was relieved from the project",
-//       time: "2 weeks ago",
-//     },
-//     {
-//       text: "Anna Doe reviewed the product",
-//       time: "1 month ago",
-//     },
-//     {
-//       text: "Michael Doe added Digital Edition into their wishlist",
-//       time: "1 month ago",
-//     },
-//     {
-//       text: "Helen Doe reviewed the project",
-//       time: "2 months ago",
-//     },
-//   ],
+  chart: {
+    dataKeys: [
+      { name: "visits", color: "#82ca9d" },
+      { name: "orders", color: "#8884d8" },
+    ],
+    data: [
+      {
+        name: "Sun",
+        visits: 4000,
+        orders: 2400,
+      },
+      {
+        name: "Mon",
+        visits: 3000,
+        orders: 1398,
+      },
+      {
+        name: "Tue",
+        visits: 2000,
+        orders: 3800,
+      },
+      {
+        name: "Wed",
+        visits: 2780,
+        orders: 3908,
+      },
+      {
+        name: "Thu",
+        visits: 1890,
+        orders: 4800,
+      },
+      {
+        name: "Fri",
+        visits: 2390,
+        orders: 3800,
+      },
+      {
+        name: "Sat",
+        visits: 3490,
+        orders: 4300,
+      },
+    ],
+  },
+  activities: [
+    {
+      text: " John Doe joined the project",
+      time: "3 day ago",
+    },
+    {
+      text: "John Doe added 3 items into their wishlist",
+      time: "1 week ago",
+    },
+    {
+      text: "Mike Doe was relieved from the project",
+      time: "2 weeks ago",
+    },
+    {
+      text: "Anna Doe reviewed the product",
+      time: "1 month ago",
+    },
+    {
+      text: "Michael Doe added Digital Edition into their wishlist",
+      time: "1 month ago",
+    },
+    {
+      text: "Helen Doe reviewed the project",
+      time: "2 months ago",
+    },
+  ],
 };
