@@ -103,6 +103,7 @@ export const getUser = async (req, res) => {
 export const updateUser = async (req, res) => {
     const { id } = req.params;
     const { username, email, phone, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
     try {
         let pool = await sql.connect(config.sql);
         let user = await pool.request()
@@ -110,8 +111,9 @@ export const updateUser = async (req, res) => {
             .input('username', sql.VarChar, username)
             .input('email', sql.VarChar, email)
             .input('phone', sql.VarChar, phone)
-            .input('password', sql.VarChar, password)
-        res.json(user.recordset[0]);
+            .input('password', sql.VarChar, hashedPassword)
+            .query('UPDATE Users SET username = @username, email = @email, @phone = phone, @password = password where id = @id');
+        res.json(user.recordsets[0]);
     } catch (error) {
         res.status(500).json({message: `Something went wrong. ${error}`});
     } finally {

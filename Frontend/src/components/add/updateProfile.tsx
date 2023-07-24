@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
 import "./add.scss";
+import { useParams } from "react-router-dom";
 
 type Props = {
     columns: GridColDef[];
@@ -9,12 +10,13 @@ type Props = {
 }
 
 function addMember(props: Props) {
+    const { id } = useParams();
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8085/user", {
+            fetch(`http://localhost:8085/user/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

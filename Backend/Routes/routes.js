@@ -103,11 +103,18 @@ const taskRoutes = (app) => {
     // Authentication
     app.route('/register')
         .post(registerUser)
-        .get(getUsers)
-        .delete(deleteTeamMember);
 
     app.route('/login')
         .post(loginUser)
+        .get(getUser)
+
+
+    app.route('/user')
+        .get(getUsers)
+        .put(updateUser)
+        .delete(deleteTeamMember);
+
+    app.route('/user/:id')
         .get(getUser)
         .put(updateUser)
         .delete(deleteTeamMember);
