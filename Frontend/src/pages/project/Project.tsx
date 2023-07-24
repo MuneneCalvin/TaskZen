@@ -101,6 +101,7 @@ const Project = () => {
         <h2>Comments</h2>
         {comments.map((comment) => (
           <div key={comment.id} className="comment">
+            <img src={"/noavatar.png"} alt="" />;
             <p>{comment.comment}</p>
           </div>
         ))}
