@@ -97,6 +97,18 @@ const Project = () => {
     setComments(data);
   };
 
+  const handleDelete = async (id: number) => {
+    try {
+      await fetch(`http://localhost:8085/comment/${id}`, {
+        method: 'DELETE',
+      });
+
+      setComments((prevComments) => prevComments.filter((comment) => comment.id !== id));
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+    }
+  };
+
   return (
     <div className="product">
       {projects.map((project) => (
@@ -109,6 +121,9 @@ const Project = () => {
           <div key={comment.id} className="comment">
             <img src={"/noavatar.png"} alt="" />
             <p>{comment.comment}</p>
+            <div className="delete" onClick={() => handleDelete(comment.id)}>
+              <img src="/delete.svg" alt="" />
+            </div>
           </div>
         ))}
       </div>
