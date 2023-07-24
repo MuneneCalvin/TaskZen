@@ -11,12 +11,14 @@
   .logo {
     display: flex;
     align-items: center;
-    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: cursive;
     gap: 10px;
 
     img {
-      width: 30px;
-      height: 30px;
+      width: 45px;
+      height: 45px;
       margin-right: 8px;
     }
   }

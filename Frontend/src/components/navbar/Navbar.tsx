@@ -31,7 +31,7 @@ const Navbar = () => {
     <div className="navbar">
       
       <div className="logo">
-        <img src="logo.svg" alt="" />
+        <img src="/ki85EbAbT.jpg" alt="" />
         <span>TaskZen</span>
       </div>
 
