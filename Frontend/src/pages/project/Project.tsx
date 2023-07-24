@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Single from "../../components/single/Single";
 import Add from '../../components/add/updateProject';
-// import Add2 from '../../components/add/addComment';
+import Add2 from '../../components/add/addComment';
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./project.scss";
@@ -53,25 +53,26 @@ const columns: GridColDef[] = [
   },
 ];
 
-// const columns2: GridColDef[] = [
-//   { field: "id", headerName: "ID", width: 90 },
-//   {
-//     field: "comment",
-//     type: "string",
-//     headerName: "Comment",
-//     width: 250,
-//   },
-//   {
-//     field: "createdAt",
-//     headerName: "Created At",
-//     width: 200,
-//     type: "Date",
-//   }
-// ]
+const columns2: GridColDef[] = [
+  { field: "id", headerName: "ID", width: 90 },
+  {
+    field: "comment",
+    type: "string",
+    headerName: "Comment",
+    width: 250,
+  },
+  {
+    field: "createdAt",
+    headerName: "Created At",
+    width: 200,
+    type: "Date",
+  }
+]
 
 const Project = () => {
   const { id } = useParams();
-  const  [open, setOpen] = useState(false);
+  const [openUpdate, setOpenUpdate] = useState(false);
+  const [openComment, setOpenComment] = useState(false);
   const [projects, setProjects] = useState([]);
   const [comments, setComments] = useState<Comment[]>([]);
 
@@ -89,31 +90,36 @@ const Project = () => {
     const res = await fetch(`http://localhost:8085/project/${id}/comments`);
     const data = await res.json();
     setComments(data);
-  }
+  };
 
   return (
     <div className="product">
-        {projects.map((project) => (
-          <Single key={project} id={project} user={project} />
-        ))}
+      {projects.map((project) => (
+        <Single key={project} id={project} user={project} />
+      ))}
 
       <div className="comments-container">
         <h2>Comments</h2>
         {comments.map((comment) => (
           <div key={comment.id} className="comment">
-            <img src={"/noavatar.png"} alt="" />;
+            <img src={"/noavatar.png"} alt="" />
             <p>{comment.comment}</p>
           </div>
         ))}
       </div>
 
-        <button className="update-Btn" onClick={() => setOpen(true)}>Update</button>
-        {open && <Add columns={columns} setOpen={setOpen} />}
+      <button className="update-Btn" onClick={() => setOpenUpdate(true)}>
+        Update
+      </button>
+      {openUpdate && <Add columns={columns} setOpen={setOpenUpdate} />}
 
-        <button className="update-Btn" >Add Comment</button>
-        {/* {open && <Add2 columns2={columns2} setOpen={setOpen} />} */}
+      <button className="update-Btn" onClick={() => setOpenComment(true)}>
+        Add Comment
+      </button>
+      {openComment && <Add2 columns2={columns2} setOpen={setOpenComment} />}
     </div>
-  )
-}
+  );
+};
 
 export default Project;
+
