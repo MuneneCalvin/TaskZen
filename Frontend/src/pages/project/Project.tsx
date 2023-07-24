@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Single from "../../components/single/Single";
 import Add from '../../components/add/updateProject';
+// import Add2 from '../../components/add/addComment';
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./project.scss";
@@ -52,9 +53,24 @@ const columns: GridColDef[] = [
   },
 ];
 
+// const columns2: GridColDef[] = [
+//   { field: "id", headerName: "ID", width: 90 },
+//   {
+//     field: "comment",
+//     type: "string",
+//     headerName: "Comment",
+//     width: 250,
+//   },
+//   {
+//     field: "createdAt",
+//     headerName: "Created At",
+//     width: 200,
+//     type: "Date",
+//   }
+// ]
+
 const Project = () => {
   const { id } = useParams();
-  // const { id } = useParams();
   const  [open, setOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [comments, setComments] = useState<Comment[]>([]);
@@ -91,8 +107,10 @@ const Project = () => {
       </div>
 
         <button className="update-Btn" onClick={() => setOpen(true)}>Update</button>
-        <button className="update-Btn" onClick={() => setOpen(true)}>Add Comment</button>
         {open && <Add columns={columns} setOpen={setOpen} />}
+
+        <button className="update-Btn" >Add Comment</button>
+        {/* {open && <Add2 columns2={columns2} setOpen={setOpen} />} */}
     </div>
   )
 }

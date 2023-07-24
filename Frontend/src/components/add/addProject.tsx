@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
-import './add.scss'
+import './add.scss';
 
 type TeamMember = {
     id: number;
