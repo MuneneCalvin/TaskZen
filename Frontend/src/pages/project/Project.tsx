@@ -66,6 +66,11 @@ const columns2: GridColDef[] = [
     headerName: "Created At",
     width: 200,
     type: "Date",
+  },
+  {
+    field: "projectId",
+    headerName: "Project ID",
+    width: 200,
   }
 ]
 
@@ -108,15 +113,13 @@ const Project = () => {
         ))}
       </div>
 
-      <button className="update-Btn" onClick={() => setOpenUpdate(true)}>
-        Update
-      </button>
+      <div className="below">
+      <button className="update-Btn" onClick={() => setOpenUpdate(true)}> Update</button>
       {openUpdate && <Add columns={columns} setOpen={setOpenUpdate} />}
 
-      <button className="update-Btn" onClick={() => setOpenComment(true)}>
-        Add Comment
-      </button>
+      <button className="update-Btn" onClick={() => setOpenComment(true)}> Add Comment</button>
       {openComment && <Add2 columns2={columns2} setOpen={setOpenComment} />}
+      </div>
     </div>
   );
 };

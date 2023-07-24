@@ -6,6 +6,7 @@
     padding: 10px 20px;
     margin: 10px 0;
     cursor: pointer;
+    font-family: cursive;
     font-size: 16px;
     font-weight: 500;
     transition: all 0.3s ease-in-out;
@@ -14,4 +15,35 @@
         color: #2c3e50;
         border: 1px solid #2c3e50;
     }
+}
+.comments-container {
+    margin-top: 20px;
+    margin: auto;
+}
+.comments-container h2 {
+    font-family: cursive;
+    font-size: 36px;
+    font-weight: 400;
+}
+.comment {
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-family: cursive;
+}
+.comment img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.below {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    font-family: cursive;
 }
