@@ -17,6 +17,7 @@ import Login from './pages/login/Login';
 import Signup from './pages/signUp/signup';
 import Profile from './pages/profile/profile';
 import Settings from './pages/settings/settings';
+import Notification from './pages/notifications/notifications';
 import './styles/global.scss';
 import User from './pages/user/User';
 import Project from './pages/project/Project';
@@ -66,6 +67,7 @@ function App() {
           <Route path="/project/:id" element={user ? <Project /> : <Landing />} />
           <Route path="/profile" element={user ? <Profile /> : <Landing />} />
           <Route path="/settings" element={user ? <Settings /> : <Landing />} />
+          <Route path="/notifications" element={user ? <Notification /> : <Landing />} />
         </Route>
       </Routes>
     </BrowserRouter>

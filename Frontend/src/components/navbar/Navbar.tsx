@@ -27,6 +27,10 @@ const Navbar = () => {
     navigate("/settings");
   };
 
+  const handleNotifications = () => {
+    navigate("/notifications");
+  }
+
   return (
     <div className="navbar">
       
@@ -42,7 +46,7 @@ const Navbar = () => {
           className="icon-nav"
           onClick={handleImageClick}
         />
-        <div className="notification">
+        <div className="notification" onClick={handleNotifications}>
           <img src="/notifications.svg" alt="" />
           <span>1</span>
         </div>
