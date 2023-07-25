@@ -3,7 +3,7 @@ import { getTeams, getTeam, createTeamMember, updateTeamMember, deleteTeamMember
 import { getProjects, getProject, addProject, updateProject, deleteProject, getProjectUsers, getProjectTeams, getUserTasks } from "../Controllers/projectController.js";
 import { getTasks, getTask, addTask, deleteTask, updateTaskStatus, getTasksByProjectId, getTasksByTeamId, getTasksByUserId } from "../Controllers/taskController.js";
 import { getComments, getComment, addComment, updateComment, deleteComment, getCommentsByTaskId, getCommentsByUserId, getCommentsByProjectId, getCommentsByTeamId } from "../Controllers/commentController.js";
-import { getNotifications, getNotificationById, getNotificationsByUserId, addNotification, deleteNotification } from "../Controllers/notificationController.js";
+import { getNotifications, getNotificationById, getNotificationsByUserId, addNotification, deleteNotification, deleteNotificationsByUserId } from "../Controllers/notificationController.js";
 
 
 const taskRoutes = (app) => {
@@ -18,7 +18,8 @@ const taskRoutes = (app) => {
         .delete(deleteNotification);
 
     app.route('/notification/user/:userId')
-        .get(getNotificationsByUserId);
+        .get(getNotificationsByUserId)
+        .delete(deleteNotificationsByUserId);
 
     // Comments
     app.route('/comment')

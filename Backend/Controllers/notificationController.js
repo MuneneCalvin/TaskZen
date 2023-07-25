@@ -76,3 +76,19 @@ export const deleteNotification = async (req, res) => {
         sql.close();
     }
 }
+
+// Delete all notifications by user id
+export const deleteNotificationsByUserId = async (req, res) => {
+    const { userId } = req.params;
+    try {
+        let pool = await sql.connect(config.sql);
+        let result = await pool.request()
+            .input('userId', sql.Int, userId)
+            .query("delete from Notifications where userId = @userId");
+        res.status(200).json({ Message: "Notifications deleted successfully..!!!" });
+    } catch (error) {
+        res.status(404).json({ Message: `Failed to delete the notifications. ${error.message}` });
+    } finally {
+        sql.close();
+    }
+}
