@@ -1,13 +1,15 @@
 import { useState, useContext } from "react";
 import { Context } from "../../context/userContext/Context";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
   const navigate = useNavigate();
+  // const { id } = useParams();
   const username = user?.username ?? "Guest";
   const [showDropdown, setShowDropdown] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
 
   const handleImageClick = () => {
     setShowDropdown(!showDropdown);
@@ -28,8 +30,9 @@ const Navbar = () => {
   };
 
   const handleNotifications = () => {
-    navigate("/notification");
-  }
+    setNotificationCount(0);
+    navigate(`notification/${user?.id}`);
+  };
 
   return (
     <div className="navbar">
@@ -48,7 +51,7 @@ const Navbar = () => {
         />
         <div className="notification" onClick={handleNotifications}>
           <img src="/notifications.svg" alt="" />
-          <span>1</span>
+          <span>{notificationCount}</span>
         </div>
 
         <div className="user" onClick={handleImageClick}>
