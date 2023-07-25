@@ -18,7 +18,7 @@ type Props = {
 
 async function fetchTeamMembers(): Promise<TeamMember[]> {
     try {
-        const response = await fetch("http://localhost:8085/team");
+        const response = await fetch("http://localhost:8088/team");
         const data = await response.json();
         return data;
     } catch (error) {
@@ -41,7 +41,7 @@ function UpdateProject(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-        fetch(`http://localhost:8085/project/${id}`, {
+        fetch(`http://localhost:8088/project/${id}`, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

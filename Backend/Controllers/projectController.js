@@ -1,7 +1,7 @@
 import sql from 'mssql';
 import nodemailer from 'nodemailer';
 import config from '../Db/config.js';
-const  { mail_password} = config.mail_password;
+// const  { mail_password} = config.mail_password;
 
 // Create a shared connection pool
 const pool = new sql.ConnectionPool(config.sql);
@@ -45,7 +45,7 @@ export const addProject = async (req, res) => {
             // Getting email of assignedTo user
             const assignedUser = await pool.request()
             .input('assignedTo', sql.VarChar, assignedTo)
-            .query("select email from Team where firstName AND lastName = @assignedTo");
+            .query("select email from Team where firstName  = @assignedTo;");
 
             const assignedEmail = assignedUser.recordset[0].email;
             console.log(assignedEmail);
@@ -60,7 +60,7 @@ export const addProject = async (req, res) => {
             });
 
             let mailOptions = {
-                from: email,
+                from: 'calvinshawn001@gmail.com',
                 to: assignedEmail,
                 subject: 'New Project Assigned',
                 text: `Hi ${assignedEmail},\n\nA new project has been assigned to you.\n\nProject Name: ${name}\nPriority: ${priority}\nDeadline: ${deadline}\n\nRegards,\nCalvin Shawn`
@@ -96,7 +96,7 @@ export const updateProject = async (req, res) => {
             // Getting email of assignedTo user
             const assignedUser = await pool.request()
                 .input('assignedTo', sql.VarChar, assignedTo)
-                .query("select email from Team where firstName AND lastName = @assignedTo");
+                .query("select email from Team where firstName = @assignedTo");
 
             const assignedEmail = assignedUser.recordset[0].email;
             console.log(assignedEmail);
@@ -111,7 +111,7 @@ export const updateProject = async (req, res) => {
             });
 
             let mailOptions = {
-                from: email,
+                from: 'calvinshawn001@gmail.com',
                 to: assignedEmail,
                 subject: 'Project Updated',
                 text: `Hi ${assignedEmail},\n\nA project assigned to you has been updated.\n\nProject Name: ${name}\nPriority: ${priority}\nDeadline: ${deadline}\n\nRegards,\nCalvin Shawn`

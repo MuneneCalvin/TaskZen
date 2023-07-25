@@ -51,7 +51,7 @@ const Products = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8085/project")
+    fetch("http://localhost:8088/project")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);

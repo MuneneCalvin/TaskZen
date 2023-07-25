@@ -14,7 +14,7 @@ function addMember(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8085/task", {
+            fetch("http://localhost:8088/task", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

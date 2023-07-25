@@ -21,7 +21,7 @@ const Task = () => {
     const [tasks, setTask] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8085/task/${id}`)
+        fetch(`http://localhost:8088/task/${id}`)
         .then((res) => res.json())
         .then((data) => setTask(data));
     }, []);
