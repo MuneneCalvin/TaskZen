@@ -27,7 +27,7 @@ async function fetchTeamMembers(): Promise<TeamMember[]> {
     }
 }
 
-    function UpdateProject(props: Props) {
+function UpdateProject(props: Props) {
     const { id } = useParams();
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
     const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);

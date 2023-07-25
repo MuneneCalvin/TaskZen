@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Single from "../../components/single/Single";
-import Add from '../../components/add/updateProject';
+import Add from '../../components/add/updateTask';
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import "./task.scss";
@@ -8,41 +8,9 @@ import "./task.scss";
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
     {
-        field: "img",
-        headerName: "Image",
-        width: 100,
-        renderCell: (params) => {
-            return <img src={params.row.img || "/noavatar.png"} alt="" />;
-        },
-    },
-    {
-        field: "name",
-        type: "string",
-        headerName: "Name",
-        width: 250,
-    },
-    {
-        field: "priority",
-        type: "string",
-        headerName: "Priority",
-        width: 150,
-    },
-    {
-        field: "deadline",
-        type: "Date",
-        headerName: "Deadline",
-        width: 200,
-    },
-    {
-        field: "createdAt",
-        headerName: "Created At",
-        width: 200,
-        type: "Date",
-    },
-    {
         field: "status",
         headerName: "Status",
-        width: 150,
+        width: 250,
         type: "string",
     },
 ];
