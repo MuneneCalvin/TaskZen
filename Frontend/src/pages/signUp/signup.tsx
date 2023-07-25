@@ -23,7 +23,7 @@ const Signup = () => {
     });
 
     const onSubmit = (data: any) => {
-        Axios.post('http://localhost:8088/register', data)
+        Axios.post('http://localhost:8080/register', data)
         .then((response) => {
             response.data.Message && toast.success(response.data.Message, {
                 position: "top-right",

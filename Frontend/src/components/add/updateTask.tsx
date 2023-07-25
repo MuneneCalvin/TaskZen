@@ -16,7 +16,7 @@ function UpdateTask(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch(`http://localhost:8088/task/${id}`, {
+            fetch(`http://localhost:8080/task/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

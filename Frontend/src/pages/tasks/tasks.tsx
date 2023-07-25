@@ -51,7 +51,7 @@ function tasks() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8088/task")
+        fetch("http://localhost:8080/task")
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);
