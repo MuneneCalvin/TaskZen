@@ -92,14 +92,14 @@ const Project = () => {
   }, []);
 
   const fetchComments = async () => {
-    const res = await fetch(`http://localhost:8085/project/${id}/comments`);
+    const res = await fetch(`http://localhost:8080/project/${id}/comments`);
     const data = await res.json();
     setComments(data);
   };
 
   const handleDelete = async (id: number) => {
     try {
-      await fetch(`http://localhost:8085/comment/${id}`, {
+      await fetch(`http://localhost:8080/comment/${id}`, {
         method: 'DELETE',
       });
 
