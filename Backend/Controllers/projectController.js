@@ -1,5 +1,7 @@
 import sql from 'mssql';
+import nodemailer from 'nodemailer';
 import config from '../Db/config.js';
+const  { mail_password} = config.mail_password;
 
 // Create a shared connection pool
 const pool = new sql.ConnectionPool(config.sql);
@@ -39,7 +41,39 @@ export const addProject = async (req, res) => {
             .input('assignedTo', sql.VarChar, assignedTo)
             .input('createdAt', sql.DateTime, createdAt)
             .query("insert into Projects (name, priority, deadline, assignedTo, createdAt) values (@name, @priority, @deadline, @assignedTo, @createdAt)");
-        res.status(200).json({ Message: "Project created successfully..!!!" });
+
+            // Getting email of assignedTo user
+            const assignedUser = await pool.request()
+            .input('assignedTo', sql.VarChar, assignedTo)
+            .query("select email from Team where firstName AND lastName = @assignedTo");
+
+            const assignedEmail = assignedUser.recordset[0].email;
+            console.log(assignedEmail);
+
+            // Sending email to assignedTo user
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'calvinshawn001@gmail.com',
+                    pass: mail_password
+                },
+            });
+
+            let mailOptions = {
+                from: email,
+                to: assignedEmail,
+                subject: 'New Project Assigned',
+                text: `Hi ${assignedEmail},\n\nA new project has been assigned to you.\n\nProject Name: ${name}\nPriority: ${priority}\nDeadline: ${deadline}\n\nRegards,\nCalvin Shawn`
+            };
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    return console.log('Error occurs', err);
+                    res.status(404).json({ Message: `Failed to send the email. ${err.message}` });
+                } else {
+                    console.log(`Email sent!!! ${data.response}`);
+                    res.status(200).json({ Message: "Project created successfully..!!!" });
+                }
+            });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the project. ${error.message}` });
     }
@@ -58,7 +92,39 @@ export const updateProject = async (req, res) => {
             .input('assignedTo', sql.VarChar, assignedTo)
             .input('createdAt', sql.DateTime, createdAt)
             .query("update Projects set name = @name, priority = @priority, deadline = @deadline, assignedTo = @assignedTo, createdAt = @createdAt where id = @id");
-        res.status(200).json({ Message: "Project updated successfully..!!!" });
+
+            // Getting email of assignedTo user
+            const assignedUser = await pool.request()
+                .input('assignedTo', sql.VarChar, assignedTo)
+                .query("select email from Team where firstName AND lastName = @assignedTo");
+
+            const assignedEmail = assignedUser.recordset[0].email;
+            console.log(assignedEmail);
+
+            // Sending email to assignedTo user
+            let transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'calvinshawn001@gmail.com',
+                    pass: mail_password
+                },
+            });
+
+            let mailOptions = {
+                from: email,
+                to: assignedEmail,
+                subject: 'Project Updated',
+                text: `Hi ${assignedEmail},\n\nA project assigned to you has been updated.\n\nProject Name: ${name}\nPriority: ${priority}\nDeadline: ${deadline}\n\nRegards,\nCalvin Shawn`
+            };
+            transporter.sendMail(mailOptions, (err, data) => {
+                if (err) {
+                    return console.log('Error occurs', err);
+                    res.status(404).json({ Message: `Failed to send the email. ${err.message}` });
+                } else {
+                    console.log(`Email sent!!! ${data.response}`);
+                    res.status(200).json({ Message: "Project updated successfully..!!!" });
+                }
+            });
     } catch (error) {
         res.status(404).json({ Message: `Failed to update the project. ${error.message}` });
     }

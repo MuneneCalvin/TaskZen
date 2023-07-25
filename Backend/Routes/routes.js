@@ -1,7 +1,7 @@
 import { loginUser, registerUser, getUser, getUsers, updateUser } from "../Controllers/userController.js";
 import { getTeams, getTeam, createTeamMember, updateTeamMember, deleteTeamMember, getProjectTeamMembers, getProjectComments, getProjectTasks } from "../Controllers/teamController.js";
 import { getProjects, getProject, addProject, updateProject, deleteProject, getProjectUsers, getProjectTeams, getUserTasks } from "../Controllers/projectController.js";
-import { getTasks, getTask, addTask, updateTask, deleteTask, updateTaskStatus, getTasksByProjectId, getTasksByTeamId, getTasksByUserId } from "../Controllers/taskController.js";
+import { getTasks, getTask, addTask, deleteTask, updateTaskStatus, getTasksByProjectId, getTasksByTeamId, getTasksByUserId } from "../Controllers/taskController.js";
 import { getComments, getComment, addComment, updateComment, deleteComment, getCommentsByTaskId, getCommentsByUserId, getCommentsByProjectId, getCommentsByTeamId } from "../Controllers/commentController.js";
 
 
@@ -37,7 +37,7 @@ const taskRoutes = (app) => {
 
     app.route('/task/:id')
         .get(getTask)
-        .put(updateTask)
+        .put(updateTaskStatus)
         .delete(deleteTask);
 
     app.route('/task/:id/status')
