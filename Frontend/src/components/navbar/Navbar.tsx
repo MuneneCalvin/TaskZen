@@ -1,12 +1,11 @@
 import { useState, useContext } from "react";
 import { Context } from "../../context/userContext/Context";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
   const navigate = useNavigate();
-  // const { id } = useParams();
   const username = user?.username ?? "Guest";
   const [showDropdown, setShowDropdown] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
