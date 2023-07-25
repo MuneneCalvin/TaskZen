@@ -67,7 +67,7 @@ function App() {
           <Route path="/project/:id" element={user ? <Project /> : <Landing />} />
           <Route path="/profile" element={user ? <Profile /> : <Landing />} />
           <Route path="/settings" element={user ? <Settings /> : <Landing />} />
-          <Route path="/notifications" element={user ? <Notification /> : <Landing />} />
+          <Route path="/notification" element={user ? <Notification /> : <Landing />} />
         </Route>
       </Routes>
     </BrowserRouter>

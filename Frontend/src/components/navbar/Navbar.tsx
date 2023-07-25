@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   const handleNotifications = () => {
-    navigate("/notifications");
+    navigate("/notification");
   }
 
   return (
