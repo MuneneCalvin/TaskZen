@@ -94,7 +94,7 @@ const Project = () => {
 
   const fetchComments = async () => {
     try {
-      const res = await fetch(`${apidomain}/${id}/comments`);
+      const res = await fetch(`${apidomain}/project/${id}/comments`);
       const data = await res.json();
       setComments(data);
     } catch (error) {

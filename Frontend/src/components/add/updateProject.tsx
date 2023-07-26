@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
 import { apidomain } from '../../Utils/domain';
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "./add.scss";
 
 type TeamMember = {
@@ -51,30 +51,29 @@ function UpdateProject(props: Props) {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
-                // data && toast.success("Project updated successfully.!!!", {
-                //     position: "top-right",
-                //     autoClose: 3000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: true,
-                //     draggable: true,
-                //     progress: undefined,
-                //     theme: "dark",
-                // });
+                data && toast.success("Project updated successfully.!!!", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             });
         } catch (error) {
             console.log(error);
-            // toast.error("😢 An error occurred while updating project.!!!", {
-            //     position: "top-right",
-            //     autoClose: 3000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: true,
-            //     draggable: true,
-            //     progress: undefined,
-            //     theme: "dark",
-            // });
+            toast.error("😢 An error occurred while updating project.!!!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
         props.setOpen(false);
     };
