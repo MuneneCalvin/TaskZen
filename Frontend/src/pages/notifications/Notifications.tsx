@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apidomain } from '../../Utils/domain';
-import './notifications.scss'
+import './notifications.scss';
 
 interface Notification {
   id: number;
@@ -29,35 +29,16 @@ function Notifications() {
     }
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (notificationId: number) => {
     try {
-      await fetch(`${apidomain}/notification/${id}`, {
+      await fetch(`${apidomain}/notification/${notificationId}`, {
         method: "DELETE",
       });
       fetchNotifications();
     } catch (error) {
       console.error("Error deleting notification:", error);
     }
-  }
-
-  // Create a notification
-  // const handleCreate = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:8080/notification/user/${id}`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({}),
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error("Failed to create notification");
-  //     }
-  //     fetchNotifications();
-  //   } catch (error) {
-  //     console.error("Error creating notification:", error);
-  //   }
-  // }
+  };
 
   return (
     <div className="notifications">
@@ -70,7 +51,12 @@ function Notifications() {
                 <img className="user-img" src={"/noavatar.png"} alt="" />
                 <p>{notification.message}</p>
                 <div className="delete">
-                  <img className="delete-icon" src="/delete.svg" alt="" onClick={handleDelete} />
+                  <img
+                    className="delete-icon"
+                    src="/delete.svg"
+                    alt=""
+                    onClick={() => handleDelete(notification.id)}
+                  />
                 </div>
               </div>
             ))
