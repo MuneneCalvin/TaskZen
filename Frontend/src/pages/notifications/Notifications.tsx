@@ -29,15 +29,11 @@ function Notifications() {
     }
   };
 
-  const handleDelete = async (e: any) => {
+  const handleDelete = async () => {
     try {
-      const id = e.target.parentElement.parentElement.getAttribute("id");
-      const response = await fetch(`${apidomain}/notification/${id}`, {
+      await fetch(`${apidomain}/notification/${id}`, {
         method: "DELETE",
       });
-      if (!response.ok) {
-        throw new Error("Failed to delete notification");
-      }
       fetchNotifications();
     } catch (error) {
       console.error("Error deleting notification:", error);
