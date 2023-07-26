@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
 import { apidomain } from '../../Utils/domain';
+import { Context } from "../../context/userContext/Context";
+import { createNotification, Notification } from "../notification";
 import "./add.scss";
 
 type Props = {
@@ -10,6 +12,7 @@ type Props = {
 }
 
 function addMember(props: Props) {
+    const { user } = useContext(Context);
     const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -34,6 +37,25 @@ function addMember(props: Props) {
                         progress: undefined,
                         theme: "dark",
                     });
+
+                    // Create notification
+                    const notification: Notification = {
+                        userId: user?.id,
+                        message: `New task "${formData.name}" added. `,
+                    };
+                    createNotification(notification).then((response) => {
+                        console.log(response);
+                        toast.success("New notification.!!!", {
+                            position: "top-right",
+                            autoClose: 3000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                        });
+                    })
                 });
         } catch (error) {
             toast.error("😢 An error occurred while adding a new task.!!!", {
