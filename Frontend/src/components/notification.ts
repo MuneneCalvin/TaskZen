@@ -1,3 +1,4 @@
+import { apidomain } from "../Utils/domain";
 
 export type Notification = {
     userId: number;
@@ -7,7 +8,7 @@ export type Notification = {
 // Create a notification
 export const createNotification = async (notification: any) => {
     try {
-        const response = await fetch(`http://localhost:8080/notification`, {
+        const response = await fetch(`${apidomain}/notification`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
