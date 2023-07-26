@@ -2,8 +2,9 @@ import { useEffect, useState, useContext } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
 import { Context } from "../../context/userContext/Context";
+import { apidomain } from '../../Utils/domain';
 import './add.scss';
-import { createNotification, notification } from "../notification";
+import { createNotification } from "../notification";
 
 type TeamMember = {
     id: number;
@@ -18,7 +19,7 @@ type Props = {
 
 async function fetchTeamMembers(): Promise<TeamMember[]> {
     try {
-        const response = await fetch("http://localhost:8080/team");
+        const response = await fetch(`${apidomain}/team`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -41,7 +42,7 @@ function addProject(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8080/project", {
+            fetch(`${apidomain}/project`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

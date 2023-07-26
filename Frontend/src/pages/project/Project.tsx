@@ -4,6 +4,7 @@ import Add from '../../components/add/updateProject';
 import Add2 from '../../components/add/addComment';
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 import "./project.scss";
 
 interface Comment {
@@ -82,7 +83,7 @@ const Project = () => {
   const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/project/${id}`)
+    fetch(`${apidomain}/project/${id}`)
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
@@ -92,14 +93,14 @@ const Project = () => {
   }, []);
 
   const fetchComments = async () => {
-    const res = await fetch(`http://localhost:8080/project/${id}/comments`);
+    const res = await fetch(`${apidomain}/${id}/comments`);
     const data = await res.json();
     setComments(data);
   };
 
   const handleDelete = async (id: number) => {
     try {
-      await fetch(`http://localhost:8080/comment/${id}`, {
+      await fetch(`${apidomain}/comment/${id}`, {
         method: 'DELETE',
       });
 

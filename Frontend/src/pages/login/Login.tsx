@@ -7,6 +7,7 @@ import { Context } from '../../context/userContext/Context.tsx';
 import './Login.scss';
 import Axios from 'axios';
 import { toast } from 'react-toastify';
+import { apidomain } from '../../Utils/domain';
 
 const Login = () => {
   const { dispatch } = useContext(Context);
@@ -22,7 +23,7 @@ const Login = () => {
   });
 
   const onSubmit = (data: any) => {
-    Axios.post('http://localhost:8080/login', data)
+    Axios.post(`${apidomain}/login`, data)
     .then (({ data }) => {
       if (data.token) {
         dispatch({ type: 'LOGIN_SUCCESS', payload: data});

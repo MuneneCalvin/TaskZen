@@ -3,6 +3,7 @@ import "./tasks.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/addTask";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 
 const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 90 },
@@ -51,7 +52,7 @@ function tasks() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/task")
+        fetch(`${apidomain}/task`)
             .then((res) => res.json())
             .then((data) => setData(data));
     }, []);

@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Axios from 'axios';
 import './signup.scss';
 import { toast } from 'react-toastify';
+import { apidomain } from '../../Utils/domain';
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -23,7 +24,7 @@ const Signup = () => {
     });
 
     const onSubmit = (data: any) => {
-        Axios.post('http://localhost:8080/register', data)
+        Axios.post(`${apidomain}/register`, data)
         .then((response) => {
             response.data.Message && toast.success(response.data.Message, {
                 position: "top-right",

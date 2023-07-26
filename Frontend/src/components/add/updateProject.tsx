@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 // import { toast } from "react-toastify";
 import "./add.scss";
 
@@ -18,7 +19,7 @@ type Props = {
 
 async function fetchTeamMembers(): Promise<TeamMember[]> {
     try {
-        const response = await fetch("http://localhost:8080/team");
+        const response = await fetch(`${apidomain}/team`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -41,7 +42,7 @@ function UpdateProject(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-        fetch(`http://localhost:8080/project/${id}`, {
+        fetch(`${apidomain}/project/${id}`, {
             method: "PUT",
             headers: {
             "Content-Type": "application/json",

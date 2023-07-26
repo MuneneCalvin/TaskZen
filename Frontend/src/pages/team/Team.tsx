@@ -3,6 +3,7 @@ import DataTable from "../../components/dataTable/DataTable";
 import "./Team.scss";
 import { useState, useEffect } from "react";
 import Add from "../../components/add/addMember";
+import { apidomain } from '../../Utils/domain';
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -52,7 +53,7 @@ const Users = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("http://localhost:8080/team");
+      const res = await fetch(`${apidomain}/team`);
       const json = await res.json();
       setData(json);
     }

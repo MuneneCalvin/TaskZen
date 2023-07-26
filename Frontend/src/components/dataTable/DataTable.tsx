@@ -3,6 +3,7 @@ import "./dataTable.scss";
 import { Link } from "react-router-dom";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
+import { apidomain } from '../../Utils/domain';
 
 type Props = {
   columns: GridColDef[];
@@ -15,7 +16,7 @@ const DataTable = (props: Props) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: (id: number) => {
-      return fetch(`http://localhost:8080/${props.slug}/${id}`, {
+      return fetch(`${apidomain}/${props.slug}/${id}`, {
         method: "delete",
       });
     },

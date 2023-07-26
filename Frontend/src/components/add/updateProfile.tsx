@@ -3,6 +3,7 @@ import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
 import "./add.scss";
 import { useParams } from "react-router-dom";
+import { apidomain } from '../../Utils/domain';
 
 type Props = {
     columns: GridColDef[];
@@ -16,7 +17,7 @@ function addMember(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch(`http://localhost:8080/user/${id}`, {
+            fetch(`${apidomain}/user/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

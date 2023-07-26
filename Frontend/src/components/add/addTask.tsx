@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { GridColDef } from "@mui/x-data-grid";
 import { toast } from "react-toastify";
+import { apidomain } from '../../Utils/domain';
 import "./add.scss";
 
 type Props = {
@@ -14,7 +15,7 @@ function addMember(props: Props) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8080/task", {
+            fetch(`${apidomain}/task`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

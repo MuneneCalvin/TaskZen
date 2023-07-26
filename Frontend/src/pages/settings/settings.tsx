@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { apidomain } from '../../Utils/domain';
 import './settings.scss';
 
 const SettingsPage = () => {
@@ -20,7 +21,7 @@ const SettingsPage = () => {
         event.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:8080/user', {
+        const response = await fetch(`${apidomain}/user`, {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',

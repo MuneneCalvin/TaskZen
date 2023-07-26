@@ -3,6 +3,7 @@ import Single from "../../components/single/Single";
 import Add from '../../components/add/updateTask';
 import { useParams } from "react-router-dom";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 import "./task.scss";
 
 const columns: GridColDef[] = [
@@ -21,7 +22,7 @@ const Task = () => {
     const [tasks, setTask] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/task/${id}`)
+        fetch(`${apidomain}/task/${id}`)
         .then((res) => res.json())
         .then((data) => setTask(data));
     }, []);

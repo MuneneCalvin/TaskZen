@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { apidomain } from '../../Utils/domain';
 import './notifications.scss'
 
 interface Notification {
@@ -17,7 +18,7 @@ function Notifications() {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/notification/user/${id}`);
+      const response = await fetch(`${apidomain}/notification/user/${id}`);
       if (!response.ok) {
         throw new Error("Failed to fetch notifications");
       }
@@ -31,7 +32,7 @@ function Notifications() {
   const handleDelete = async (e: any) => {
     try {
       const id = e.target.parentElement.parentElement.getAttribute("id");
-      const response = await fetch(`http://localhost:8080/notification/${id}`, {
+      const response = await fetch(`${apidomain}/notification/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {

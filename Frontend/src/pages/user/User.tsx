@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Single from "../../components/single/Single";
 import Add from "../../components/add/updateTeam";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 import "./user.scss";
 
 
@@ -50,7 +51,7 @@ const Team = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:8088/team/${id}`);
+        const res = await fetch(`${apidomain}/team/${id}`);
         const data = await res.json();
         setUsers(data);
       } catch (err) {

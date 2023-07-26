@@ -3,6 +3,7 @@ import "./projects.scss";
 import DataTable from "../../components/dataTable/DataTable";
 import Add from "../../components/add/addProject";
 import { GridColDef } from "@mui/x-data-grid";
+import { apidomain } from '../../Utils/domain';
 
 const columns: GridColDef[] = [
   { field: "id", headerName: "ID", width: 90 },
@@ -51,7 +52,7 @@ const Products = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/project")
+    fetch(`${apidomain}/project`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
