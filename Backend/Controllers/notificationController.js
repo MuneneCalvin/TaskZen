@@ -47,12 +47,13 @@ export const getNotificationsByUserId = async (req, res) => {
 
 // Create a notification
 export const addNotification = async (req, res) => {
-    const { message } = req.body;
+    const { userId, message } = req.body;
     try {
         let pool = await sql.connect(config.sql);
         let result = await pool.request()
+            .input('userId', sql.Int, userId)
             .input('message', sql.VarChar, message)
-            .query("insert into Notifications (message) values (@message)");
+            .query("insert into Notifications (userId, message) values (@userId, @message)");
         res.status(200).json({ Message: "Notification created successfully..!!!" });
     } catch (error) {
         res.status(404).json({ Message: `Failed to create the Notification. ${error.message}` });

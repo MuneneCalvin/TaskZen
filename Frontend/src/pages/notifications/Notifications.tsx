@@ -43,6 +43,25 @@ function Notifications() {
     }
   }
 
+  // Create a notification
+  // const handleCreate = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:8080/notification/user/${id}`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({}),
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Failed to create notification");
+  //     }
+  //     fetchNotifications();
+  //   } catch (error) {
+  //     console.error("Error creating notification:", error);
+  //   }
+  // }
+
   return (
     <div className="notifications">
       <h1>Notifications</h1>
