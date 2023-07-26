@@ -8,6 +8,7 @@ import './signup.scss';
 import { toast } from 'react-toastify';
 import { apidomain } from '../../Utils/domain';
 
+
 const Signup = () => {
     const navigate = useNavigate();
     // const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +27,7 @@ const Signup = () => {
     const onSubmit = (data: any) => {
         Axios.post(`${apidomain}/register`, data)
         .then((response) => {
-            response.data.Message && toast.success(response.data.Message, {
+            response.data && toast.success(response.data.Message, {
                 position: "top-right",
                 autoClose: 3001,
                 hideProgressBar: false,
@@ -39,6 +40,7 @@ const Signup = () => {
             navigate('/home');
         })
         .catch((error) => {
+            console.log(error);
             error.response.data.message && toast.error(error.response.data.message, {
                 position: "top-right",
                 autoClose: 3001,
@@ -48,7 +50,7 @@ const Signup = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-                });;
+                });
         });
     }
 

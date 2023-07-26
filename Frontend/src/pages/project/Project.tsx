@@ -93,9 +93,13 @@ const Project = () => {
   }, []);
 
   const fetchComments = async () => {
-    const res = await fetch(`${apidomain}/${id}/comments`);
-    const data = await res.json();
-    setComments(data);
+    try {
+      const res = await fetch(`${apidomain}/${id}/comments`);
+      const data = await res.json();
+      setComments(data);
+    } catch (error) {
+      console.error('Error fetching comments:', error);
+    }
   };
 
   const handleDelete = async (id: number) => {

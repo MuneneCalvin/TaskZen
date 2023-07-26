@@ -1,1 +1,1 @@
-export const apidomain = "taskzenapi.azurewebsites.net";
+export const apidomain = "https://taskzenapi.azurewebsites.net";
