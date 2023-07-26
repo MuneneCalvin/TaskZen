@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Context } from "../../context/userContext/Context";
 import { apidomain } from '../../Utils/domain';
 import './add.scss';
-import { createNotification } from "../notification";
+import { createNotification, Notification } from "../notification";
 
 type TeamMember = {
     id: number;
@@ -35,7 +35,7 @@ function addProject(props: Props) {
 
     useEffect(() => {
         fetchTeamMembers().then((data) => {
-        setTeamMembers(data);
+            setTeamMembers(data);
         });
     }, []);
 
@@ -64,11 +64,23 @@ function addProject(props: Props) {
                     });
 
                     // Create a notification for the user
-                    const notification = {
+                    const notification: Notification = {
                         userId: user?.id,
-                        message: `A new project "${formData.name}" has been added 101.`,
+                        message: `A new project "${formData.name}" has been added.`,
                     };
-                    createNotification(notification);
+                    createNotification(notification).then((response) => {
+                        console.log(response);
+                        toast.success("New notification.!!!", {
+                            position: "top-right",
+                            autoClose: 3000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                        });
+                    });
                 }
             });
         } catch (error) {
