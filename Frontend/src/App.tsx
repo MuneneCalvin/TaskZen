@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { Context } from './context/userContext/Context';
+// import { useContext } from 'react';
+// import { Context } from './context/userContext/Context';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes, Outlet } from 'react-router-dom';
@@ -27,7 +27,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 const queryClient = new QueryClient();
 
 function App() {
-  const { user } = useContext(Context);
+  // const { user } = useContext(Context);
 
   const Layout = () => {
     return (
@@ -57,17 +57,17 @@ function App() {
         <Route path="/signup" element={<Signup />} />
 
         <Route element={<Layout />}>
-          <Route path="/home" element={user ? <Home /> : <Landing />} />
-          <Route path="/team" element={user ? <Team /> : <Landing />} />
-          <Route path="/projects" element={user ? <Projects /> : <Landing />} />
-          <Route path="/calendar" element={user ? <Calendar /> : <Landing />} />
-          <Route path="/tasks" element={user ? <Tasks /> : <Landing />} />
-          <Route path="/task/:id" element={user ? <Task /> : <Landing />} />
-          <Route path="/team/:id" element={user ? <User /> : <Landing />} />
-          <Route path="/project/:id" element={user ? <Project /> : <Landing />} />
-          <Route path="/profile" element={user ? <Profile /> : <Landing />} />
-          <Route path="/settings" element={user ? <Settings /> : <Landing />} />
-          <Route path="/notification/:id" element={user ? <Notification /> : <Landing />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/task/:id" element={<Task />} />
+          <Route path="/team/:id" element={<User />} />
+          <Route path="/project/:id" element={<Project />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/notification/:id" element={<Notification />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -75,3 +75,5 @@ function App() {
 }
 
 export default App;
+
+// <Route path="/profile" element={user ? <Profile /> : <Landing />} />
